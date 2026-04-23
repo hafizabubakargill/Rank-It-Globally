@@ -5,45 +5,45 @@ export default function ProblemSection() {
     {
       title: "Slow loading pages",
       description: "Visitors leave before they even see your offer.",
-      icon: <Hourglass className="text-red-500 w-8 h-8" />,
+      icon: <Hourglass className="text-brand-primary w-8 h-8" />,
     },
     {
       title: "Weak messaging",
       description: "The site looks nice, but people do not understand why they should choose you.",
-      icon: <MessageSquareX className="text-orange-500 w-8 h-8" />,
+      icon: <MessageSquareX className="text-brand-primary w-8 h-8" />,
     },
     {
       title: "No clear conversion path",
       description: "Too many sections, weak CTAs, and no simple next step.",
-      icon: <MousePointerClick className="text-yellow-500 w-8 h-8" />,
+      icon: <MousePointerClick className="text-brand-primary w-8 h-8" />,
     },
     {
       title: "Poor mobile experience",
       description: "Most traffic is mobile, but many sites still feel built for desktop first.",
-      icon: <Smartphone className="text-brand-accent-blue w-8 h-8" />,
+      icon: <Smartphone className="text-brand-primary w-8 h-8" />,
     },
   ];
 
   return (
-    <section id="problems" className="py-24 bg-brand-light">
+    <section id="problems" className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 tracking-tight">
+        <div className="text-center max-w-3xl mx-auto mb-20">
+          <h2 className="text-4xl md:text-5xl font-black text-brand-dark mb-6 tracking-tight">
             Most websites are built backwards.
           </h2>
-          <p className="text-lg text-gray-600">
-            Most businesses spend money on websites that look decent but fail where it matters: slow loading, weak messaging, unclear CTAs, poor mobile experience, and no real conversion flow.
+          <p className="text-xl text-gray-600 font-medium">
+            Businesses spend money on websites that look decent but fail where it matters: slow loading, weak messaging, unclear CTAs, and no real conversion flow.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {problems.map((problem, idx) => (
-            <div key={idx} className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
-              <div className="mb-6 bg-gray-50 w-16 h-16 rounded-xl flex items-center justify-center">
+            <div key={idx} className="bg-white p-8 rounded-3xl shadow-[0_10px_40px_rgba(102,100,228,0.08)] border border-brand-primary/10 hover:shadow-[0_20px_60px_rgba(102,100,228,0.15)] hover:-translate-y-2 transition-all duration-300">
+              <div className="mb-8 bg-brand-primary/10 w-16 h-16 rounded-2xl flex items-center justify-center">
                 {problem.icon}
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">{problem.title}</h3>
-              <p className="text-gray-600">{problem.description}</p>
+              <h3 className="text-xl font-bold text-brand-dark mb-4">{problem.title}</h3>
+              <p className="text-gray-600 font-medium">{problem.description}</p>
             </div>
           ))}
         </div>

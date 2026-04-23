@@ -9,55 +9,53 @@ export default function WorkSection() {
       imageColor: "from-emerald-400/20 to-teal-500/20",
     },
     {
-      title: "Ecommerce Brand",
-      industry: "Ecommerce",
-      description: "A product-focused store experience designed to help customers browse faster and buy with confidence.",
-      imageColor: "from-brand-accent-blue/20 to-indigo-500/20",
+      title: "UR Counselor",
+      description: "Lead-gen landing page for a counseling service. Increased booking inquiries by 40%.",
+      category: "Landing Page",
     },
     {
-      title: "Service Business Website",
-      industry: "Professional Services",
-      description: "A modern website structure built to explain services clearly and drive consultation bookings.",
-      imageColor: "from-brand-accent-gold/20 to-orange-500/20",
+      title: "Van Isle Paint",
+      description: "High-trust local service website. Redesigned user flow boosted local quote requests by 35%.",
+      category: "Local Business",
     },
     {
-      title: "Automation Dashboard",
-      industry: "Operations",
-      description: "A custom digital system designed to simplify workflows and improve business visibility.",
-      imageColor: "from-brand-accent-violet/20 to-purple-500/20",
+      title: "Wallito",
+      description: "Mobile-first digital business card platform. Optimized signup flow resulted in a 50% drop in bounce rate.",
+      category: "SaaS",
+    },
+    {
+      title: "Peppy Pet",
+      description: "Strategic upsell placement increased Average Order Value (AOV) by $22.",
+      category: "Ecommerce",
     }
   ];
 
   return (
-    <section id="work" className="py-24 bg-white">
+    <section id="work" className="py-24 bg-brand-dark text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-3xl mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 tracking-tight">
-            Recent work built around clarity, speed, and conversion
-          </h2>
-          <p className="text-lg text-gray-600">
-            A few examples of digital experiences, websites, ecommerce builds, and systems designed with business outcomes in mind.
-          </p>
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+          <div className="max-w-2xl">
+            <h2 className="text-4xl md:text-5xl font-black mb-6 tracking-tight">Real Results. Measurable Growth.</h2>
+            <p className="text-xl text-gray-400 font-medium">
+              We don't just write code. We build digital assets that drive revenue.
+            </p>
+          </div>
+          <a href="/book-call" className="bg-brand-primary hover:bg-brand-primary-hover text-white px-6 py-3 rounded-full font-bold transition-all shadow-md shadow-brand-primary/20 shrink-0">
+            Build My High-Converting Site
+          </a>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {projects.map((project, idx) => (
             <div key={idx} className="group cursor-pointer">
-              {/* Image Placeholder */}
-              <div className={`relative w-full aspect-[4/3] rounded-2xl mb-6 overflow-hidden bg-gradient-to-br ${project.imageColor} border border-gray-100`}>
-                <div className="absolute inset-0 bg-white/40 group-hover:bg-transparent transition-colors duration-500" />
-                {/* Mockup Frame inside */}
-                <div className="absolute bottom-0 right-0 w-[90%] h-[85%] bg-white rounded-tl-xl shadow-2xl border-t border-l border-gray-200 overflow-hidden transform group-hover:-translate-y-2 group-hover:-translate-x-2 transition-transform duration-500">
-                  <div className="h-6 border-b border-gray-100 bg-gray-50 flex items-center px-3 gap-1.5">
-                    <div className="w-2 h-2 rounded-full bg-gray-300" />
-                    <div className="w-2 h-2 rounded-full bg-gray-300" />
-                    <div className="w-2 h-2 rounded-full bg-gray-300" />
-                  </div>
-                  <div className="p-4 flex flex-col gap-3">
-                    <div className="w-full h-32 bg-gray-100 rounded-lg" />
-                    <div className="w-3/4 h-4 bg-gray-100 rounded" />
-                    <div className="w-1/2 h-4 bg-gray-100 rounded" />
-                  </div>
+              {/* Project Image Placeholder */}
+              <div className="w-full aspect-video bg-brand-darker rounded-2xl mb-6 overflow-hidden relative border border-white/10 group-hover:border-brand-primary/50 transition-colors">
+                <div className="absolute inset-0 bg-gradient-to-tr from-brand-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                <div className="absolute inset-0 flex items-center justify-center text-gray-700 font-medium">
+                  Project Visual
+                </div>
+                <div className="absolute top-4 right-4 w-10 h-10 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all transform translate-y-2 group-hover:translate-y-0">
+                  <ArrowUpRight className="text-white w-5 h-5" />
                 </div>
               </div>
               

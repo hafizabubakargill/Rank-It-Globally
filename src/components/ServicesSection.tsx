@@ -25,35 +25,35 @@ export default function ServicesSection() {
   ];
 
   return (
-    <section id="services" className="py-24 bg-brand-light">
+    <section id="services" className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 tracking-tight">
+        <div className="text-center max-w-3xl mx-auto mb-20">
+          <h2 className="text-4xl md:text-5xl font-black text-brand-dark mb-6 tracking-tight">
             What we can build for you
           </h2>
-          <p className="text-lg text-gray-600">
+          <p className="text-xl text-gray-600 font-medium">
             From a single high-converting landing page to a complete website, store, or digital system, we build around your business goal first.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {services.map((service, idx) => (
-            <div key={idx} className="bg-white p-8 sm:p-10 rounded-3xl shadow-sm border border-gray-100 hover:shadow-xl hover:border-brand-accent-blue/20 transition-all duration-300 group flex flex-col h-full">
-              <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-brand-accent-blue transition-colors">{service.title}</h3>
-              <p className="text-gray-600 mb-8 text-lg flex-1">{service.description}</p>
+            <div key={idx} className="bg-brand-light p-8 sm:p-10 rounded-[2rem] shadow-sm border border-brand-primary/5 hover:shadow-2xl hover:shadow-brand-primary/10 transition-all duration-300 group flex flex-col h-full">
+              <h3 className="text-2xl font-black text-brand-dark mb-4 group-hover:text-brand-primary transition-colors">{service.title}</h3>
+              <p className="text-gray-700 font-medium mb-8 text-lg flex-1 leading-relaxed">{service.description}</p>
               
-              <div className="mb-8">
+              <div className="mb-10">
                 <div className="flex flex-wrap gap-2">
                   {service.tags.map(tag => (
-                    <span key={tag} className="bg-gray-50 text-gray-600 text-sm px-3 py-1.5 rounded-full border border-gray-200">
+                    <span key={tag} className="bg-white text-brand-dark font-semibold text-sm px-4 py-2 rounded-full border border-gray-200 shadow-sm">
                       {tag}
                     </span>
                   ))}
                 </div>
               </div>
               
-              <a href="/book-call" className="inline-flex items-center text-brand-accent-blue font-medium hover:text-blue-700 transition-colors group/link mt-auto">
-                Discuss this build <ArrowRight className="ml-2 w-4 h-4 group-hover/link:translate-x-1 transition-transform" />
+              <a href="/book-call" className="inline-flex items-center text-white bg-brand-dark hover:bg-brand-primary px-6 py-3 rounded-full font-bold transition-colors group/link mt-auto w-max shadow-md">
+                Discuss this build <ArrowRight className="ml-2 w-5 h-5 group-hover/link:translate-x-1 transition-transform" />
               </a>
             </div>
           ))}
