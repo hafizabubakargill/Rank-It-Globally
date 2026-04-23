@@ -1,61 +1,95 @@
-import { CheckCircle, Zap, MessageCircle, Smartphone, UserPlus, LineChart } from "lucide-react";
+"use client";
+
+import { CheckCircle2 } from "lucide-react";
+import { motion, Variants } from "framer-motion";
 
 export default function SolutionSection() {
-  const features = [
+  const solutions = [
     {
-      title: "Conversion-focused design",
-      description: "Every section is written and designed to move visitors closer to action.",
-      icon: <CheckCircle className="text-brand-primary w-6 h-6" />
+      title: "Built for Speed",
+      description: "We use modern tech stacks (Next.js, React) so your site loads in milliseconds, keeping bounce rates low.",
     },
     {
-      title: "Next.js performance build",
-      description: "Fast, lightweight frontend built for better loading speed, smooth user experience, and SEO foundations.",
-      icon: <Zap className="text-brand-primary w-6 h-6" />
+      title: "Conversion-First Design",
+      description: "Every layout, button, and headline is strategically placed to guide users toward contacting you or buying.",
     },
     {
-      title: "Clear sales messaging",
-      description: "We help structure your offer, benefits, proof, and CTAs so visitors know exactly what to do.",
-      icon: <MessageCircle className="text-brand-primary w-6 h-6" />
+      title: "Premium Aesthetic",
+      description: "Stand out from competitors with a high-end, custom design that immediately builds trust with prospects.",
     },
     {
-      title: "Mobile-first experience",
-      description: "Layouts designed to feel smooth and premium on phones, tablets, and desktops.",
-      icon: <Smartphone className="text-brand-primary w-6 h-6" />
-    },
-    {
-      title: "Lead capture flow",
-      description: "Forms, call buttons, WhatsApp links, booking links, and email capture placed where they matter.",
-      icon: <UserPlus className="text-brand-primary w-6 h-6" />
-    },
-    {
-      title: "Analytics-ready setup",
-      description: "Tracking structure prepared for Google Analytics, Meta Pixel, Google Ads, and other tools.",
-      icon: <LineChart className="text-brand-primary w-6 h-6" />
+      title: "SEO Optimized Base",
+      description: "Clean code structure and best practices ensure Google can easily crawl and rank your new digital asset.",
     }
   ];
 
-  return (
-    <section id="solution" className="py-24 bg-brand-light relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center max-w-3xl mx-auto mb-20">
-          <h2 className="text-4xl md:text-5xl font-black text-brand-dark mb-6 tracking-tight">
-            A faster website. A clearer offer. A better conversion path.
-          </h2>
-          <p className="text-xl text-gray-700 font-medium">
-            Rank It Globally helps you turn your website into a focused growth asset. We simplify your message, improve the layout, optimize performance, and create a clean path from visitor to lead.
-          </p>
-        </div>
+  const containerVariants: Variants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+      },
+    },
+  };
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {features.map((feature, idx) => (
-            <div key={idx} className="p-8 rounded-3xl bg-white shadow-xl shadow-brand-primary/5 hover:shadow-2xl hover:shadow-brand-primary/10 border border-white hover:border-brand-primary/20 hover:-translate-y-1 transition-all duration-300 group">
-              <div className="w-14 h-14 bg-brand-primary/5 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-brand-primary/10 group-hover:scale-110 transition-all">
-                {feature.icon}
-              </div>
-              <h3 className="text-xl font-bold text-brand-dark mb-3">{feature.title}</h3>
-              <p className="text-gray-600 font-medium leading-relaxed">{feature.description}</p>
-            </div>
-          ))}
+  const itemVariants: Variants = {
+    hidden: { opacity: 0, x: -30 },
+    visible: { opacity: 1, x: 0, transition: { type: "spring" as const, stiffness: 100 } },
+  };
+
+  return (
+    <section id="solution" className="py-24 bg-brand-dark text-white relative overflow-hidden">
+      {/* Subtle Background Elements */}
+      <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-primary/10 rounded-full blur-[150px] opacity-50" />
+      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-purple-500/10 rounded-full blur-[100px] opacity-30" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+          
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.7 }}
+          >
+            <h2 className="text-4xl md:text-5xl font-black mb-6 leading-tight tracking-tight">
+              We engineer digital assets that <span className="text-brand-primary">drive revenue.</span>
+            </h2>
+            <p className="text-xl text-gray-400 font-medium leading-relaxed mb-8">
+              A website is an investment. We build custom solutions designed to recover that investment quickly by capturing more of your existing traffic.
+            </p>
+            <motion.a 
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              href="/book-call" 
+              className="inline-block bg-white text-brand-dark px-8 py-4 rounded-full font-bold shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all"
+            >
+              See how we do it
+            </motion.a>
+          </motion.div>
+
+          <motion.div 
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            className="grid grid-cols-1 sm:grid-cols-2 gap-6"
+          >
+            {solutions.map((solution, idx) => (
+              <motion.div 
+                key={idx} 
+                variants={itemVariants}
+                whileHover={{ y: -5, backgroundColor: "rgba(255,255,255,0.08)" }}
+                className="bg-white/5 border border-white/10 p-8 rounded-3xl backdrop-blur-sm transition-all duration-300"
+              >
+                <CheckCircle2 className="text-brand-primary w-8 h-8 mb-6" />
+                <h3 className="text-xl font-bold mb-3">{solution.title}</h3>
+                <p className="text-gray-400 font-medium leading-relaxed">{solution.description}</p>
+              </motion.div>
+            ))}
+          </motion.div>
+
         </div>
       </div>
     </section>
