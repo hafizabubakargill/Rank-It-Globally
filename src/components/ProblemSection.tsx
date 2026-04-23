@@ -1,61 +1,52 @@
 "use client";
 
-import { Hourglass, MessageSquareX, MousePointerClick, Smartphone } from "lucide-react";
+import { CheckCircle2, XCircle } from "lucide-react";
 import { motion, Variants } from "framer-motion";
 
 export default function ProblemSection() {
-  const problems = [
-    {
-      title: "Slow loading pages",
-      description: "Visitors leave before they even see your offer.",
-      icon: <Hourglass className="text-brand-primary w-8 h-8" />,
-    },
-    {
-      title: "Weak messaging",
-      description: "The site looks nice, but people do not understand why they should choose you.",
-      icon: <MessageSquareX className="text-brand-primary w-8 h-8" />,
-    },
-    {
-      title: "No clear conversion path",
-      description: "Too many sections, weak CTAs, and no simple next step.",
-      icon: <MousePointerClick className="text-brand-primary w-8 h-8" />,
-    },
-    {
-      title: "Poor mobile experience",
-      description: "Most traffic is mobile, but many sites still feel built for desktop first.",
-      icon: <Smartphone className="text-brand-primary w-8 h-8" />,
-    },
-  ];
-
   const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
+      transition: { staggerChildren: 0.1 },
     },
   };
 
-  const cardVariants: Variants = {
-    hidden: { opacity: 0, y: 40, scale: 0.95 },
-    visible: { opacity: 1, y: 0, scale: 1, transition: { type: "spring" as const, stiffness: 100, damping: 20 } },
+  const itemVariants: Variants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { type: "spring" as const, stiffness: 100 } },
   };
 
+  const oldWay = [
+    "Slow load times (3+ seconds) killing traffic before they see your offer.",
+    "A generic 'brochure' site that explains what you do, but doesn't sell it.",
+    "Hidden contact forms and weak 'Learn More' buttons.",
+    "Desktop-first designs that break or look awful on mobile devices.",
+    "No clear funnel—visitors browse aimlessly and leave without tracing."
+  ];
+
+  const newWay = [
+    "Sub-second load times engineered with Next.js to maximize traffic retention.",
+    "Direct-response copywriting that positions you as the only logical choice.",
+    "High-contrast, impossible-to-miss CTAs that drive immediate action.",
+    "Mobile-first architecture designed perfectly for where 80% of your traffic lives.",
+    "A focused, single-path conversion funnel that forces a buying decision."
+  ];
+
   return (
-    <section id="problems" className="py-24 bg-white">
+    <section id="problems" className="py-24 bg-[#f8f9fa] border-y border-gray-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
-          className="text-center max-w-3xl mx-auto mb-20"
+          className="text-center max-w-4xl mx-auto mb-20"
         >
-          <h2 className="text-4xl md:text-5xl font-black text-brand-dark mb-6 tracking-tight">
-            Most websites are built backwards.
+          <h2 className="text-4xl md:text-5xl font-black text-[#0f110f] mb-6 tracking-tight leading-tight">
+            Why 90% of Agency Websites <span className="text-red-500">Bleed Money.</span>
           </h2>
-          <p className="text-xl text-gray-600 font-medium">
-            Businesses spend money on websites that look decent but fail where it matters: slow loading, weak messaging, unclear CTAs, and no real conversion flow.
+          <p className="text-xl text-gray-600 font-medium leading-relaxed">
+            Most businesses buy websites based on how "pretty" they look. They end up with digital brochures that generate zero ROI. We build digital assets focused on one metric: Revenue.
           </p>
         </motion.div>
 
@@ -64,22 +55,53 @@ export default function ProblemSection() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+          className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12"
         >
-          {problems.map((problem, idx) => (
-            <motion.div 
-              key={idx} 
-              variants={cardVariants}
-              whileHover={{ y: -8, boxShadow: "0 20px 60px rgba(102,100,228,0.15)" }}
-              className="bg-white p-8 rounded-3xl shadow-[0_10px_40px_rgba(102,100,228,0.08)] border border-brand-primary/10 transition-colors duration-300"
-            >
-              <div className="mb-8 bg-brand-primary/10 w-16 h-16 rounded-2xl flex items-center justify-center">
-                {problem.icon}
+          {/* The Old Way */}
+          <motion.div 
+            variants={itemVariants}
+            className="bg-white rounded-3xl p-8 md:p-12 border-t-8 border-red-500 shadow-xl"
+          >
+            <div className="flex items-center gap-4 mb-8">
+              <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center">
+                <XCircle className="text-red-500 w-6 h-6" />
               </div>
-              <h3 className="text-xl font-bold text-brand-dark mb-4">{problem.title}</h3>
-              <p className="text-gray-600 font-medium">{problem.description}</p>
-            </motion.div>
-          ))}
+              <h3 className="text-3xl font-black text-gray-900">The Old Way</h3>
+            </div>
+            <ul className="space-y-6">
+              {oldWay.map((text, idx) => (
+                <li key={idx} className="flex items-start gap-3">
+                  <XCircle className="text-red-400 w-6 h-6 shrink-0 mt-0.5" />
+                  <span className="text-gray-600 font-medium text-lg">{text}</span>
+                </li>
+              ))}
+            </ul>
+          </motion.div>
+
+          {/* The New Way (Rank It Globally) */}
+          <motion.div 
+            variants={itemVariants}
+            className="bg-[#0f110f] rounded-3xl p-8 md:p-12 border-t-8 border-[#6664e4] shadow-[0_20px_50px_rgba(102,100,228,0.2)] text-white relative overflow-hidden"
+          >
+            {/* Subtle highlight */}
+            <div className="absolute top-0 right-0 w-64 h-64 bg-[#6664e4]/10 rounded-full blur-[80px]" />
+            
+            <div className="flex items-center gap-4 mb-8 relative z-10">
+              <div className="w-12 h-12 bg-[#6664e4]/20 rounded-full flex items-center justify-center">
+                <CheckCircle2 className="text-[#6664e4] w-6 h-6" />
+              </div>
+              <h3 className="text-3xl font-black">The Rank It Globally Way</h3>
+            </div>
+            <ul className="space-y-6 relative z-10">
+              {newWay.map((text, idx) => (
+                <li key={idx} className="flex items-start gap-3">
+                  <CheckCircle2 className="text-[#6664e4] w-6 h-6 shrink-0 mt-0.5" />
+                  <span className="text-gray-300 font-medium text-lg">{text}</span>
+                </li>
+              ))}
+            </ul>
+          </motion.div>
+
         </motion.div>
       </div>
     </section>
