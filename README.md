@@ -1,36 +1,55 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Rank It Globally - Next.js Landing Page
 
-## Getting Started
+This is a premium, high-performance landing page built for Rank It Globally. It is designed to be fast, conversion-focused, and ready for deployment on Hostinger.
 
-First, run the development server:
+## Tech Stack
+- Next.js (App Router)
+- React
+- Tailwind CSS v4
+- Lucide Icons (for lightweight SVGs)
+- TypeScript
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Local Development
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+To run the project locally:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. Install dependencies:
+   ```bash
+   npm install
+   ```
+2. Start the development server:
+   ```bash
+   npm run dev
+   ```
+3. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Hostinger Deployment Instructions
 
-## Learn More
+This Next.js application is pre-configured for **Static Export**, which is the recommended and easiest way to host a landing page on Hostinger.
 
-To learn more about Next.js, take a look at the following resources:
+### Method 1: Static Export (Recommended)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Since `next.config.ts` is configured with `output: 'export'` and `images: { unoptimized: true }`, you can export the project as static HTML/CSS/JS files.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. Build the project:
+   ```bash
+   npm run build
+   ```
+2. This will generate an `out` directory containing all the static files.
+3. Upload the *contents* of the `out` directory directly to your Hostinger `public_html` folder using Hostinger's File Manager or FTP.
+4. **Git Deployment (Alternative):** If Hostinger supports Git deployment for static sites, you can connect your repository, and set the build command to `npm run build` and the publish directory to `out`.
 
-## Deploy on Vercel
+### Method 2: Node.js Hosting
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+If you need Server-Side Rendering (SSR) or API routes in the future, you can use Hostinger's Node.js hosting:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. Remove `output: 'export'` from `next.config.ts`.
+2. Build the app:
+   ```bash
+   npm run build
+   ```
+3. Start the production server:
+   ```bash
+   npm start
+   ```
+4. Configure the app in your Hostinger Node.js panel to point to the Next.js server.
