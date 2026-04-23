@@ -77,52 +77,21 @@ export default function CTASection() {
             </div>
           </motion.div>
 
-          {/* Right: Embedded Calendar Placeholder */}
+          {/* Right: Embedded Calendar Live Widget */}
           <motion.div 
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="w-full"
+            className="w-full relative min-h-[700px] bg-white rounded-3xl overflow-hidden shadow-2xl"
           >
-            <div className="bg-white rounded-3xl p-6 sm:p-8 shadow-2xl relative">
-              {/* This mimics a Calendly embed */}
-              <div className="border-b border-gray-100 pb-6 mb-6">
-                <h3 className="text-2xl font-black text-gray-900 mb-2">Book Your Strategy Session</h3>
-                <p className="text-gray-500">Select a date and time that works for you.</p>
-              </div>
-
-              {/* Fake Calendar UI */}
-              <div className="grid grid-cols-7 gap-2 mb-6">
-                {['S', 'M', 'T', 'W', 'T', 'F', 'S'].map((day, i) => (
-                  <div key={i} className="text-center text-xs font-bold text-gray-400 py-2">{day}</div>
-                ))}
-                {Array.from({ length: 31 }).map((_, i) => (
-                  <div 
-                    key={i} 
-                    className={`aspect-square flex items-center justify-center rounded-full text-sm font-bold cursor-pointer transition-colors ${i === 14 ? 'bg-[#6664e4] text-white shadow-md' : i < 10 ? 'text-gray-300' : 'text-gray-700 hover:bg-gray-100'}`}
-                  >
-                    {i + 1}
-                  </div>
-                ))}
-              </div>
-
-              <div className="space-y-3">
-                <button className="w-full py-4 border-2 border-[#6664e4] text-[#6664e4] font-bold rounded-xl hover:bg-[#6664e4] hover:text-white transition-colors">
-                  10:00 AM EST
-                </button>
-                <button className="w-full py-4 border-2 border-gray-200 text-gray-600 font-bold rounded-xl hover:border-[#6664e4] hover:text-[#6664e4] transition-colors">
-                  2:30 PM EST
-                </button>
-                <button className="w-full py-4 border-2 border-gray-200 text-gray-600 font-bold rounded-xl hover:border-[#6664e4] hover:text-[#6664e4] transition-colors">
-                  4:00 PM EST
-                </button>
-              </div>
-
-              <div className="mt-8 pt-6 border-t border-gray-100 text-center">
-                <p className="text-xs text-gray-400 font-medium">Powered by Rank It Globally</p>
-              </div>
-            </div>
+            <iframe 
+              src="https://calendly.com/rankitglobally/free-consultation?embed_domain=rankitglobally.com&embed_type=Inline"
+              width="100%" 
+              height="100%" 
+              className="absolute inset-0 border-none"
+              title="Book a Free Consultation"
+            ></iframe>
           </motion.div>
 
         </div>

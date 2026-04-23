@@ -33,11 +33,11 @@ export default function Header() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
         {/* Logo */}
-        <a href="#" className="flex-shrink-0">
+        <a href="/" className="flex-shrink-0">
           <img 
-            src="https://rankitglobally.com/wp-content/uploads/2024/08/Logo.svg" 
+            src={isScrolled ? "https://rankitglobally.com/wp-content/uploads/2024/08/Logo.svg" : "https://rankitglobally.com/wp-content/uploads/2025/03/Logo-White-Rank-It-Globally-1.svg"} 
             alt="Rank It Globally Logo" 
-            className="h-8 md:h-10 w-auto"
+            className="h-8 md:h-10 w-auto transition-all duration-300"
           />
         </a>
 
@@ -48,7 +48,7 @@ export default function Header() {
               key={link.name}
               href={link.href}
               className={`hover:text-brand-primary transition-colors ${
-                isScrolled ? "text-gray-600" : "text-gray-800"
+                isScrolled ? "text-gray-800" : "text-white/90 hover:text-white"
               }`}
             >
               {link.name}
@@ -60,7 +60,7 @@ export default function Header() {
         <div className="hidden md:block">
           <a
             href="/book-call"
-            className="bg-brand-primary hover:bg-brand-primary-hover text-white px-6 py-2.5 rounded-full font-medium transition-all shadow-md hover:shadow-lg shadow-brand-primary/20"
+            className="bg-[#FF5A5F] hover:bg-[#ff4046] text-white px-6 py-2.5 rounded-full font-medium transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5"
           >
             Book a Free Strategy Call
           </a>
@@ -68,7 +68,7 @@ export default function Header() {
 
         {/* Mobile Menu Toggle */}
         <button
-          className="md:hidden p-2 text-brand-dark"
+          className={`md:hidden p-2 transition-colors ${isScrolled ? "text-brand-dark" : "text-white"}`}
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
         >
           {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
