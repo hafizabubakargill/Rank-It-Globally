@@ -17,7 +17,7 @@
     "@portabletext/react": "^6.2.0",
     "@sanity/image-url": "^2.1.1",
     "lenis": "^1.3.23",
-    "next": "16.2.9",
+    "next": "16.2.11",
     "next-sanity": "^13.1.1",
     "react": "19.2.4",
     "react-dom": "19.2.4",
@@ -28,7 +28,7 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
-    "eslint-config-next": "16.2.9",
+    "eslint-config-next": "16.2.11",
     "typescript": "^5"
   },
   "overrides": {
@@ -36,8 +36,21 @@
       "uuid": "^11.1.1"
     },
     "adm-zip": "^0.6.0",
-    "js-yaml": "^4.2.0",
+    "dompurify": "3.4.12",
+    "js-yaml": "4.3.0",
+    "linkify-it": "5.0.2",
+    "minimatch@3.1.5": {
+      "brace-expansion": "1.1.16"
+    },
+    "minimatch@5.1.9": {
+      "brace-expansion": "2.1.2"
+    },
+    "minimatch@10.2.5": {
+      "brace-expansion": "5.0.7"
+    },
     "postcss": "^8.5.10",
+    "sharp": "0.35.0",
+    "tar": "7.5.19",
     "typeid-js": {
       "uuid": "^11.1.1"
     }
