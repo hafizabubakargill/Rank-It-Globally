@@ -21,50 +21,82 @@ const nextConfig: NextConfig = {
     ];
   },
   async headers() {
+    const contentSecurityPolicy = [
+      "default-src 'self'",
+      "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://*.googletagmanager.com https://assets.calendly.com https://*.calendly.com https://player.vimeo.com",
+      "style-src 'self' 'unsafe-inline' https://assets.calendly.com",
+      "img-src 'self' data: blob: https://cdn.sanity.io https://i.vimeocdn.com https://*.vimeocdn.com https://*.google-analytics.com https://*.googletagmanager.com https://*.google.com https://*.gstatic.com",
+      "font-src 'self' data:",
+      "connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com https://*.google-analytics.com https://*.googletagmanager.com https://*.calendly.com https://api.calendly.com https://player.vimeo.com https://*.vimeo.com https://cdn.sanity.io https://*.sanity.io wss://*.sanity.io",
+      "frame-src https://calendly.com https://*.calendly.com https://player.vimeo.com",
+      "worker-src 'self' blob:",
+      "object-src 'none'",
+      "base-uri 'self'",
+      "form-action 'self'",
+      "frame-ancestors 'self'",
+      "upgrade-insecure-requests",
+    ].join("; ");
+    const securityHeaders = [
+      {
+        key: "X-Content-Type-Options",
+        value: "nosniff",
+      },
+      {
+        key: "Referrer-Policy",
+        value: "strict-origin-when-cross-origin",
+      },
+      {
+        key: "Strict-Transport-Security",
+        value: "max-age=63072000; includeSubDomains; preload",
+      },
+      {
+        key: "X-Frame-Options",
+        value: "SAMEORIGIN",
+      },
+      {
+        key: "Permissions-Policy",
+        value: "camera=(), microphone=(), geolocation=()",
+      },
+    ];
     const documentHeaders = [
       {
         key: "Cache-Control",
         value: "public, max-age=0, must-revalidate",
       },
+      {
+        key: "Content-Security-Policy",
+        value: contentSecurityPolicy,
+      },
+    ];
+    const documentRoutes = [
+      "/",
+      "/about-us",
+      "/case-studies",
+      "/contact-us",
+      "/free-audit",
+      "/blog",
+      "/blog/:slug*",
+      "/privacy-policy",
+      "/terms",
+      "/industries",
+      "/industries/:slug*",
+      "/bellevue-seo-services",
+      "/bellevue-social-media-marketing",
+      "/seo-services",
+      "/social-media-marketing",
+      "/web-development",
+      "/ui-ux-design",
+      "/cro-strategy",
+      "/ppc-management",
+      "/ecommerce-development",
     ];
 
     return [
       {
-        source: "/",
-        headers: documentHeaders,
+        source: "/:path*",
+        headers: securityHeaders,
       },
-      {
-        source: "/about-us",
-        headers: documentHeaders,
-      },
-      {
-        source: "/case-studies",
-        headers: documentHeaders,
-      },
-      {
-        source: "/contact-us",
-        headers: documentHeaders,
-      },
-      {
-        source: "/free-audit",
-        headers: documentHeaders,
-      },
-      {
-        source: "/blog",
-        headers: documentHeaders,
-      },
-      {
-        source: "/blog/:slug*",
-        headers: documentHeaders,
-      },
-      {
-        source: "/privacy-policy",
-        headers: documentHeaders,
-      },
-      {
-        source: "/terms",
-        headers: documentHeaders,
-      },
+      ...documentRoutes.map((source) => ({ source, headers: documentHeaders })),
       {
         source: "/assets/:path*",
         headers: [

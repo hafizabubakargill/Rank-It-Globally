@@ -8,8 +8,7 @@ const appleIcon = "/assets/brand/apple-touch-icon.png";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://rankitglobally.com"),
-  title:
-    "Rank It Globally | AI SEO & Web Design Agency - Get Found on Google & AI Search",
+  title: "Rank It Globally | AI SEO & Web Design Agency",
   description:
     "We build websites that rank on AI search, dominate Google, and turn clicks into clients. Get your free SEO audit - no obligation.",
   keywords: [

@@ -4,7 +4,7 @@ import Link from "next/link";
 import { BellevueFaqs } from "./BellevueFaqs";
 import "./page.css";
 
-const pageUrl = "https://rankitglobally.com/bellevue-seo-services/";
+const pageUrl = "https://rankitglobally.com/bellevue-seo-services";
 
 export const metadata: Metadata = {
   title: "Best SEO Company in Bellevue, WA — RankitGlobally",

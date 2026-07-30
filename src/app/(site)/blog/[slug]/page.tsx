@@ -181,7 +181,11 @@ export default async function BlogPostPage({ params }: PageProps) {
             {post.excerpt ? <p>{post.excerpt}</p> : null}
           </header>
           {post.mainImage ? (
-            <img className="blog-hero-image" src={heroImageUrl} alt="" />
+            <img
+              className="blog-hero-image"
+              src={heroImageUrl}
+              alt={post.title}
+            />
           ) : null}
         </article>
 
@@ -238,7 +242,11 @@ export default async function BlogPostPage({ params }: PageProps) {
                               .fit("max")
                               .auto("format")
                               .url()}
-                            alt=""
+                            alt={
+                              typeof value.alt === "string" && value.alt.trim()
+                                ? value.alt
+                                : `Illustration for ${post.title}`
+                            }
                             loading="lazy"
                           />
                         ) : null,
@@ -258,7 +266,7 @@ export default async function BlogPostPage({ params }: PageProps) {
                       .fit("crop")
                       .auto("format")
                       .url()}
-                    alt=""
+                    alt={post.author.name}
                     loading="lazy"
                   />
                 ) : (
@@ -323,7 +331,7 @@ export default async function BlogPostPage({ params }: PageProps) {
                         .fit("crop")
                         .auto("format")
                         .url()}
-                      alt=""
+                      alt={relatedPost.title}
                       loading="lazy"
                     />
                   ) : null}

@@ -3,7 +3,7 @@ import { ServicePage } from "@/components/service-pages/ServicePage";
 import { servicePages } from "@/content/servicePages";
 
 const config = servicePages.social;
-const canonical = "https://rankitglobally.com/social-media-marketing/";
+const canonical = "https://rankitglobally.com/social-media-marketing";
 
 export const metadata: Metadata = {
   title: config.title,

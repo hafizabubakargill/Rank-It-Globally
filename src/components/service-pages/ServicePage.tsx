@@ -47,7 +47,7 @@ function ServiceHeroVisual({ config }: { config: ServicePageConfig }) {
 }
 
 function ServiceSchema({ config }: { config: ServicePageConfig }) {
-  const pageUrl = `${siteUrl}/${config.slug}/`;
+  const pageUrl = `${siteUrl}/${config.slug}`;
   const serviceSchema = {
     "@context": "https://schema.org",
     "@type": "Service",

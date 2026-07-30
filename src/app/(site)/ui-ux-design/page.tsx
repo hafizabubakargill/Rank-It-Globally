@@ -3,7 +3,7 @@ import { ServicePage } from "@/components/service-pages/ServicePage";
 import { servicePages } from "@/content/servicePages";
 
 const config = servicePages.design;
-const canonical = "https://rankitglobally.com/ui-ux-design/";
+const canonical = "https://rankitglobally.com/ui-ux-design";
 
 export const metadata: Metadata = {
   title: config.title,

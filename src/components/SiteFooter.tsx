@@ -128,7 +128,7 @@ export default function SiteFooter() {
           <HardHomeLink className="footer-brand-lockup" aria-label="Rank It Globally home">
             <Image
               src="/assets/brand/logo-icon.svg"
-              alt=""
+              alt="Rank It Globally"
               width={54}
               height={36}
               className="footer-logo-mark"

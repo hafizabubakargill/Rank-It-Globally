@@ -14,6 +14,7 @@ import baseSchema from "@/content/schema.json";
 import scripts from "@/content/landingScripts.json";
 
 export const metadata: Metadata = {
+  title: "Rank It Globally | AI SEO & Web Design Agency",
   alternates: {
     canonical: "https://rankitglobally.com/",
   },

@@ -13,7 +13,7 @@ import {
 import "@/components/bellevue-services/bellevue-services.css";
 import "./page.css";
 
-const pageUrl = "https://rankitglobally.com/bellevue-social-media-marketing/";
+const pageUrl = "https://rankitglobally.com/bellevue-social-media-marketing";
 const title = "Social Media Marketing Services in Bellevue, WA";
 const description =
   "Social media strategy, content creation, community management, paid campaigns, and reporting for Bellevue and Eastside businesses.";

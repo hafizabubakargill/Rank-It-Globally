@@ -5,6 +5,9 @@ export const metadata: Metadata = {
   title: "Privacy Policy | Rank It Globally",
   description:
     "Privacy Policy for Rank It Globally, including how website audit requests, contact details, analytics, and third-party services are handled.",
+  alternates: {
+    canonical: "https://rankitglobally.com/privacy-policy",
+  },
 };
 
 export default function PrivacyPolicyPage() {

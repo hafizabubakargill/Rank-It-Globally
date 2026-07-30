@@ -1400,6 +1400,18 @@ a.marketing-card:hover {
   height: 24px;
 }
 
+.audit-inspection-grid {
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  margin-top: 2rem;
+}
+
+.audit-inspection-grid .marketing-card-icon svg {
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
 .marketing-card:hover .marketing-card-icon {
   background: var(--grad, linear-gradient(135deg, #5552d4, #9b59ff));
   color: #fff !important;

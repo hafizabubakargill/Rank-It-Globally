@@ -59,6 +59,96 @@ export default function FreeAuditPage() {
         </div>
       </section>
 
+      <section aria-labelledby="audit-inspection-title">
+        <p className="marketing-eyebrow">What we inspect</p>
+        <h2 id="audit-inspection-title">
+          A focused review of the issues that affect{" "}
+          <span className="gtext">visibility and conversion.</span>
+        </h2>
+        <div className="marketing-card-grid audit-inspection-grid">
+          <article className="marketing-card">
+            <span className="marketing-card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M4 18a8 8 0 1 1 16 0" />
+                <path d="m12 14 4-4" />
+                <path d="M7 18h10" />
+              </svg>
+            </span>
+            <h3>Page speed and mobile experience</h3>
+            <p>
+              We review loading performance, Core Web Vitals, layout stability,
+              and mobile usability signals that can cost attention and leads.
+            </p>
+          </article>
+          <article className="marketing-card">
+            <span className="marketing-card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M8 3h8l3 3v15H5V3h3Z" />
+                <path d="M9 10h6M9 14h6M9 18h4" />
+              </svg>
+            </span>
+            <h3>Technical SEO and crawlability</h3>
+            <p>
+              We check whether search engines can access, understand, and index
+              the important parts of your website without unnecessary friction.
+            </p>
+          </article>
+          <article className="marketing-card">
+            <span className="marketing-card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <circle cx="11" cy="11" r="7" />
+                <path d="m16.2 16.2 4.3 4.3M8 11h6M11 8v6" />
+              </svg>
+            </span>
+            <h3>Search and AI readiness</h3>
+            <p>
+              We assess titles, headings, content structure, schema, and trust
+              signals that help Google and AI systems interpret your offer.
+            </p>
+          </article>
+          <article className="marketing-card">
+            <span className="marketing-card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M4 5h16v14H4z" />
+                <path d="M4 9h16M8 14h3M8 17h6" />
+              </svg>
+            </span>
+            <h3>Conversion friction</h3>
+            <p>
+              We look for unclear messaging, weak calls to action, and journey
+              gaps that may stop qualified visitors from contacting you.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section className="marketing-process" aria-labelledby="audit-process-title">
+        <div>
+          <p className="marketing-eyebrow">How it works</p>
+          <h2 id="audit-process-title">
+            From website details to a{" "}
+            <span className="gtext">clear action plan.</span>
+          </h2>
+        </div>
+        <ol>
+          <li>
+            <strong>Share what feels stuck.</strong> Tell us what you want
+            reviewed, your biggest current problem, and the website we should
+            inspect.
+          </li>
+          <li>
+            <strong>We run the checks.</strong> The audit combines performance
+            and SEO data with a structured review of search visibility and
+            conversion opportunities.
+          </li>
+          <li>
+            <strong>Receive the report.</strong> We email prioritized findings
+            in plain English, with the option to book a walkthrough if you want
+            help deciding what to fix first.
+          </li>
+        </ol>
+      </section>
+
       <section className="marketing-split">
         <div>
           <p className="marketing-eyebrow">What you get</p>
@@ -84,6 +174,30 @@ export default function FreeAuditPage() {
           >
             Book a call instead
           </Link>
+        </div>
+      </section>
+
+      <section className="marketing-split">
+        <div>
+          <p className="marketing-eyebrow">What to expect</p>
+          <h2>
+            Useful direction without{" "}
+            <span className="gtext">the hard sell.</span>
+          </h2>
+        </div>
+        <div className="marketing-copy">
+          <p>
+            You will receive practical recommendations ordered by likely impact,
+            not a generic checklist. The audit highlights what deserves
+            attention now, what can wait, and where further manual investigation
+            may be needed.
+          </p>
+          <p>
+            The report uses automated data and AI-supported analysis as a
+            starting point. It does not guarantee rankings, traffic, or revenue,
+            and implementation is not included. There is no obligation to hire
+            us after receiving it.
+          </p>
         </div>
       </section>
     </main>

@@ -3,7 +3,7 @@ import { ServicePage } from "@/components/service-pages/ServicePage";
 import { servicePages } from "@/content/servicePages";
 
 const config = servicePages.cro;
-const canonical = "https://rankitglobally.com/cro-strategy/";
+const canonical = "https://rankitglobally.com/cro-strategy";
 
 export const metadata: Metadata = {
   title: config.title,

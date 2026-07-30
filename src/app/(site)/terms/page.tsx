@@ -5,6 +5,9 @@ export const metadata: Metadata = {
   title: "Terms of Service | Rank It Globally",
   description:
     "Terms of Service for Rank It Globally website, audits, consultations, and digital marketing services.",
+  alternates: {
+    canonical: "https://rankitglobally.com/terms",
+  },
 };
 
 export default function TermsPage() {

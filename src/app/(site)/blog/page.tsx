@@ -5,6 +5,9 @@ import { getPosts, urlForImage } from "@/sanity/client";
 export const metadata: Metadata = {
   title: "Blog | Rank It Globally",
   description: "SEO, AI search, CRO, and web design insights from Rank It Globally.",
+  alternates: {
+    canonical: "https://rankitglobally.com/blog",
+  },
 };
 
 export default async function BlogPage() {
@@ -37,7 +40,7 @@ export default async function BlogPage() {
                           .fit("max")
                           .auto("format")
                           .url()}
-                        alt=""
+                        alt={post.title}
                         loading="lazy"
                       />
                     ) : (
