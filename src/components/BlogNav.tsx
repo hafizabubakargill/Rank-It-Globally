@@ -37,12 +37,12 @@ type MegaMenuLink = {
 };
 
 const serviceLinks: MegaMenuLink[] = [
-  { label: "SEO services", href: "/seo-services", icon: "search", available: true },
-  { label: "Social media marketing", href: "/social-media-marketing", icon: "social", available: true },
-  { label: "PPC / Google Ads", href: "/ppc-management", icon: "ads", available: true },
   { label: "Web development", href: "/web-development", icon: "code", available: true },
   { label: "E-commerce development", href: "/ecommerce-development", icon: "cart", available: true },
   { label: "UI/UX design", href: "/ui-ux-design", icon: "design", available: true },
+  { label: "SEO services", href: "/seo-services", icon: "search", available: true },
+  { label: "PPC / Google Ads", href: "/ppc-management", icon: "ads", available: true },
+  { label: "Social media marketing", href: "/social-media-marketing", icon: "social", available: true },
   { label: "CRO strategy", href: "/cro-strategy", icon: "cro", available: true },
 ];
 

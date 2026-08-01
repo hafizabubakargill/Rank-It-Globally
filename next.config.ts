@@ -9,6 +9,16 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: "/bellevue-social-media-marketing",
+        destination: "/social-media-marketing",
+        permanent: true,
+      },
+      {
+        source: "/bellevue-seo-services",
+        destination: "/seo-services",
+        permanent: true,
+      },
+      {
         source: "/free-consultation",
         destination: "/free-audit",
         permanent: true,
@@ -80,8 +90,6 @@ const nextConfig: NextConfig = {
       "/terms",
       "/industries",
       "/industries/:slug*",
-      "/bellevue-seo-services",
-      "/bellevue-social-media-marketing",
       "/seo-services",
       "/social-media-marketing",
       "/web-development",
