@@ -147,6 +147,21 @@ export default function SiteFooter() {
             </span>
             hello@rankitglobally.com
           </a>
+          <a
+            className="footer-hostinger-badge"
+            href="https://www.hostinger.com?REFERRALCODE=abubakargill"
+            target="_blank"
+            rel="noopener noreferrer sponsored"
+            aria-label="Visit Hostinger with Rank It Globally's referral link"
+          >
+            <Image
+              src="/assets/brand/hostinger-partner-badge.svg"
+              alt="Hostinger partner"
+              width={160}
+              height={60}
+              className="footer-hostinger-badge-img"
+            />
+          </a>
         </div>
 
         <FooterNav title="Company" links={companyLinks} />
