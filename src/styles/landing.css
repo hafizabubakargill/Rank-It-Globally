@@ -1118,7 +1118,7 @@ a.cta-e[style*="width:100%"] {
 .footer-email-icon{width:30px;height:30px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;background:#fff;color:#5552D4;border:1px solid rgba(102,100,228,.16);box-shadow:0 10px 24px rgba(102,100,228,.08);flex-shrink:0;transition:background .2s,color .2s,border-color .2s,transform .2s}
 .footer-email-icon svg{width:15px;height:15px;display:block;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
 .footer-email:hover .footer-email-icon,.footer-email:focus-visible .footer-email-icon{background:#5552D4;color:#fff;border-color:#5552D4;transform:translateY(-1px)}
-.footer-hostinger-badge{display:inline-flex;align-items:center;justify-content:center;width:min(176px,100%);padding:.42rem .5rem;margin-top:-.1rem;border-radius:14px;background:rgba(255,255,255,.7);border:1px solid rgba(102,100,228,.16);box-shadow:0 12px 28px rgba(102,100,228,.08);transition:transform .2s,box-shadow .2s,border-color .2s}
+.footer-hostinger-badge{display:inline-flex;align-items:center;justify-content:center;width:min(130px,100%);box-shadow:0 12px 28px rgba(102,100,228,.08);transition:transform .2s,box-shadow .2s,border-color .2s}
 .footer-hostinger-badge-img{display:block;width:100%;height:auto}
 .footer-hostinger-badge:hover,.footer-hostinger-badge:focus-visible{transform:translateY(-1px);border-color:rgba(102,100,228,.34);box-shadow:0 16px 34px rgba(102,100,228,.13);outline:none}
 .footer-hostinger-badge:focus-visible{outline:2px solid rgba(102,100,228,.45);outline-offset:4px}
