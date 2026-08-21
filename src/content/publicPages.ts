@@ -20,7 +20,7 @@ export const emailAddress = "hello@rankitglobally.com";
 export const publicProjects = portfolioProjects satisfies ProjectCard[];
 
 export const auditChecks = [
-  "PageSpeed and Core Web Vitals",
+  "Performance and Core Web Vitals",
   "Technical crawlability and indexability",
   "On-page SEO basics: titles, headings, and meta descriptions",
   "AI search readiness and schema opportunities",
@@ -49,7 +49,7 @@ export const agencyValues = [
 ];
 
 export const processSteps = [
-  "Audit the current site, competitors, search visibility, and conversion path.",
+  "Assess the current site, competitors, search visibility, and conversion path.",
   "Map the highest-intent pages, offers, and calls to action before design starts.",
   "Build clean, fast pages with SEO structure and conversion copy baked in.",
   "Launch, measure, and keep improving based on leads, bookings, and revenue signals.",

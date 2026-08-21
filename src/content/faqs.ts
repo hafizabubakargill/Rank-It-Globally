@@ -22,7 +22,7 @@ export const homepageFaqs: FaqItem[] = [
   {
     question: "How much does a professional website cost?",
     answer:
-      "Our landing pages start at $699, brand websites at $1,299, and e-commerce builds at $1,499. Every project includes mobile-first design, speed optimization, and on-page SEO. Use the price estimator to get an instant quote for your specific needs.",
+      "Every project is scoped after we understand the offer, conversion path, technical state, and growth target. The Growth Assessment is where we identify the right level of work before recommending a build, SEO, CRO, or campaign plan.",
   },
   {
     question: "Is it worth running Google Ads for a small business?",
@@ -47,7 +47,7 @@ export const homepageFaqs: FaqItem[] = [
   {
     question: "How long does a website build take?",
     answer:
-      "Landing pages usually take 1 to 2 weeks. Brand websites take 2 to 3 weeks. Shopify stores usually take 2 to 4 weeks. Rush delivery is available at an additional cost when you have a launch deadline or campaign going live.",
+      "Landing pages usually take 1 to 2 weeks. Brand websites take 2 to 3 weeks. Shopify stores usually take 2 to 4 weeks. Accelerated delivery can be discussed when a launch deadline or campaign date makes timing critical.",
   },
   {
     question: "Do I need to sign a long-term contract?",

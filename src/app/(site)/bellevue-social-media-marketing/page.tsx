@@ -71,9 +71,9 @@ const searchOutcomes = [
 
 const relatedLinks = [
   { href: "/bellevue-seo-services", label: "Bellevue SEO services", description: "Turn audience demand into durable organic visibility." },
-  { href: "/blog/how-much-does-seo-cost", label: "SEO pricing guide", description: "Understand common investment levels and what each tier should deliver." },
+  { href: "/blog/how-much-does-seo-cost", label: "SEO scope guide", description: "Understand common investment levels and what each tier should deliver." },
   { href: "/case-studies", label: "Case studies", description: "Explore connected website, content, and campaign work." },
-  { href: "/free-audit", label: "Free website audit", description: "Find the most important gaps before choosing a channel plan." },
+  { href: "/growth-assessment", label: "Growth Assessment", description: "Find the most important gaps before choosing a channel plan." },
 ] as const;
 
 const provider = { "@type": "Organization", name: "Rank It Globally", url: "https://rankitglobally.com/" };
@@ -101,7 +101,7 @@ export default function BellevueSocialMediaMarketingPage() {
           <h1>Turn attention into a <span className="gtext">repeatable growth system.</span></h1>
           <p>Strategy, content, community, paid campaigns, and reporting designed to work as one connected customer journey.</p>
           <div className="marketing-actions">
-            <Link className="cta-e cta-e-lg" href="/free-audit">Get My Free Audit <span className="ar">→</span></Link>
+            <Link className="cta-e cta-e-lg" href="/growth-assessment">Book a Growth Assessment <span className="ar">→</span></Link>
             <Link className="marketing-link" href="/case-studies">Explore case studies</Link>
           </div>
         </div>
@@ -216,7 +216,7 @@ export default function BellevueSocialMediaMarketingPage() {
         links={[...relatedLinks]}
       />
 
-      <EastsideFinalCta eyebrow="Build a clearer campaign system" title="Find the gaps between attention" accent="and conversion." body="Request a free audit and we will review the message, creative journey, website experience, and measurement opportunities worth prioritizing." />
+      <EastsideFinalCta eyebrow="Build a clearer campaign system" title="Find the gaps between attention" accent="and conversion." body="Request a growth assessment and we will review the message, creative journey, website experience, and measurement opportunities worth prioritizing." />
     </main>
   );
 }

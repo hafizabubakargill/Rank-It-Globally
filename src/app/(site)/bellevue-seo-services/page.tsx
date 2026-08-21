@@ -355,8 +355,8 @@ export default function BellevueSeoServicesPage() {
             Bellevue businesses qualified customers.
           </p>
           <div className="marketing-actions">
-            <Link className="cta-e cta-e-lg" href="/free-audit">
-              Get My Free Audit <span className="ar">→</span>
+            <Link className="cta-e cta-e-lg" href="/growth-assessment">
+              Book a Growth Assessment <span className="ar">→</span>
             </Link>
             <Link className="marketing-link" href="/case-studies">
               See the work in action
@@ -514,9 +514,8 @@ export default function BellevueSeoServicesPage() {
           ))}
         </ul>
         <p className="bellevue-cost-note">
-          Planning a budget? Read our{" "}
-          <Link href="/blog/how-much-does-seo-cost">SEO cost guide</Link> for a
-          practical breakdown of scope and pricing levels.
+          Planning the next step? Request a Growth Assessment and we will map
+          scope around your search visibility, competition, and revenue goals.
         </p>
       </section>
 
@@ -556,8 +555,8 @@ export default function BellevueSeoServicesPage() {
           conversion issues most likely to hold the site back.
         </p>
         <div className="marketing-actions">
-          <Link className="cta-e cta-e-lg" href="/free-audit">
-            Get My Free Audit <span className="ar">→</span>
+          <Link className="cta-e cta-e-lg" href="/growth-assessment">
+            Book a Growth Assessment <span className="ar">→</span>
           </Link>
           <Link className="marketing-link" href="/case-studies">
             View case studies

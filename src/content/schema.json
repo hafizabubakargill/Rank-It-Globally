@@ -108,8 +108,8 @@
       "@type": "Offer",
       "itemOffered": {
         "@type": "Service",
-        "name": "Free Website Audit",
-        "description": "A free website audit covering speed, SEO, local visibility, conversion friction, and growth opportunities."
+        "name": "Growth Assessment",
+        "description": "A consultative website and growth assessment covering speed, SEO, local visibility, conversion friction, and prioritized next steps."
       }
     }
   ],

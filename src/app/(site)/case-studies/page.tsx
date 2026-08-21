@@ -83,7 +83,7 @@ export default function CaseStudiesPage() {
           and conversion-focused landing pages.
         </p>
         <div className="marketing-actions">
-          <Link className="cta-e cta-e-lg" href="/free-audit">
+          <Link className="cta-e cta-e-lg" href="/growth-assessment">
             Audit my website <span className="ar">→</span>
           </Link>
           <Link className="marketing-link" href="/#portfolio">

@@ -1,6 +1,6 @@
 # Rank It Globally Next.js Site
 
-Next.js conversion of the Rank It Globally landing page with a hidden Sanity blog and a Brevo-powered audit form.
+Next.js conversion of the Rank It Globally landing page with a hidden Sanity blog and a Calendly-first Growth Assessment funnel.
 
 ## Local Development
 
@@ -15,21 +15,12 @@ Open `http://localhost:3000`.
 
 Copy `.env.example` to `.env.local` and fill in the credentials you want enabled.
 
-Required for visitor/admin audit emails:
+Required for Calendly booking capture and admin booking emails:
 
 ```env
 BREVO_API_KEY=
 BREVO_SENDER_EMAIL=
 BREVO_ADMIN_EMAIL=
-```
-
-Required for full automated reports:
-
-```env
-ANTHROPIC_API_KEY=
-GOOGLE_PAGESPEED_API_KEY=
-DATAFORSEO_LOGIN=
-DATAFORSEO_PASSWORD=
 ```
 
 Optional lead capture into a Brevo list:
@@ -57,18 +48,14 @@ SANITY_API_READ_TOKEN=
 
 The embedded Studio is available at `/studio`. The blog routes are available at `/blog` and `/blog/[slug]`, but they are intentionally not linked from the landing page navigation yet.
 
-## Audit Form
+## Growth Assessment Booking
 
-The landing page posts to `/api/audit`. The route:
+The primary conversion path is `/growth-assessment`, which embeds Calendly and posts scheduled invitees to `/api/booking`. The booking route:
 
-- validates the visitor website and email
-- runs Google PageSpeed when configured
-- runs DataForSEO OnPage when configured
-- asks Claude to write a readable report when configured
-- sends the visitor report through Brevo
-- sends an admin notification through Brevo
-
-If an upstream API is missing or unavailable, the route still returns success and includes a clear pending/fallback section in the report.
+- validates the Calendly invitee URI
+- fetches invitee details with `CALENDLY_TOKEN`
+- adds the contact to Brevo when configured
+- sends an admin booking notification through Brevo
 
 ## Hostinger Deployment
 

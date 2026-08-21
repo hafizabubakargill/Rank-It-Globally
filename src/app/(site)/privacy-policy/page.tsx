@@ -21,7 +21,7 @@ export default function PrivacyPolicyPage() {
         {
           title: "Information We Collect",
           body: [
-            "When you use our website or request a free audit, we may collect your name, email address, website URL, business details you choose to provide, and technical information related to the submitted website.",
+            "When you use our website or request a growth assessment, we may collect your name, email address, website URL, business details you choose to provide, and technical information related to the submitted website.",
             "We may also collect standard usage information such as browser type, pages visited, referring URLs, approximate location, device information, and interaction data through analytics or hosting logs.",
           ],
         },
@@ -29,7 +29,7 @@ export default function PrivacyPolicyPage() {
           title: "How We Use Information",
           body: [
             "We use your information to respond to inquiries, prepare website audits, send requested reports, book consultations, improve our services, and communicate about Rank It Globally offerings.",
-            "If you submit the audit form, your website URL may be processed through tools such as Google PageSpeed Insights, DataForSEO, Anthropic Claude, and email delivery systems to generate and send the report.",
+            "If you book a Growth Assessment, your scheduling details may be processed through Calendly, Brevo, and email delivery systems so we can confirm the booking and follow up.",
           ],
         },
         {
@@ -43,7 +43,7 @@ export default function PrivacyPolicyPage() {
           title: "Service Providers",
           body: [
             "We use trusted service providers to operate the website, process audit data, deliver email, manage content, schedule calls, and understand website performance.",
-            "These providers may include hosting platforms, Brevo, Google, DataForSEO, Anthropic, Sanity, Calendly, and similar tools needed to deliver the service.",
+            "These providers may include hosting platforms, Brevo, Google, Sanity, Calendly, and similar tools needed to deliver the service.",
           ],
         },
         {

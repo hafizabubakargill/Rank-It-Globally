@@ -20,7 +20,12 @@ const nextConfig: NextConfig = {
       },
       {
         source: "/free-consultation",
-        destination: "/free-audit",
+        destination: "/growth-assessment",
+        permanent: true,
+      },
+      {
+        source: "/free-audit",
+        destination: "/growth-assessment",
         permanent: true,
       },
       {
@@ -83,7 +88,7 @@ const nextConfig: NextConfig = {
       "/about-us",
       "/case-studies",
       "/contact-us",
-      "/free-audit",
+      "/growth-assessment",
       "/blog",
       "/blog/:slug*",
       "/privacy-policy",

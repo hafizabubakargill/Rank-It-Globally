@@ -67,7 +67,7 @@ export type ServicePageConfig = {
 
 const sharedRelated = [
   { href: "/case-studies", label: "Case studies", description: "See how strategy, design, development, and campaigns connect in real work." },
-  { href: "/free-audit", label: "Free website audit", description: "Find the most important visibility and conversion gaps before choosing a scope." },
+  { href: "/growth-assessment", label: "Growth Assessment", description: "Find the most important visibility and conversion gaps before choosing a scope." },
 ];
 
 export const servicePages: Record<string, ServicePageConfig> = {
@@ -129,7 +129,7 @@ export const servicePages: Record<string, ServicePageConfig> = {
     ecosystemTitle: "The tools support the work,",
     ecosystemAccent: "they do not replace judgment.",
     ecosystemBody: "We combine first-party analytics, search data, crawling, performance testing, and human review.",
-    ecosystem: ["Google Search Console", "Google Analytics 4", "PageSpeed Insights", "DataForSEO", "Sanity", "Structured data", "Conversion tracking", "Manual QA"],
+    ecosystem: ["Google Search Console", "Google Analytics 4", "Performance testing", "Search data", "Sanity", "Structured data", "Conversion tracking", "Manual QA"],
     faqs: [
       { question: "How long does SEO take to work?", answer: "Technical and on-page improvements can create early movement, while competitive content and authority usually take longer. Timing depends on the starting point, market, implementation pace, and strength of existing signals." },
       { question: "Do you guarantee first-page rankings?", answer: "No credible SEO partner can control search engines or guarantee a specific position. We commit to a clear strategy, sound implementation, transparent reporting, and decisions grounded in evidence." },
@@ -146,7 +146,7 @@ export const servicePages: Record<string, ServicePageConfig> = {
     ctaEyebrow: "Start with search clarity",
     ctaTitle: "See what is limiting your",
     ctaAccent: "visibility and conversions.",
-    ctaBody: "Request a free audit and we will identify the technical, content, authority, and journey gaps worth addressing first.",
+    ctaBody: "Request a growth assessment and we will identify the technical, content, authority, and journey gaps worth addressing first.",
   },
   social: {
     slug: "social-media-marketing",
@@ -223,7 +223,7 @@ export const servicePages: Record<string, ServicePageConfig> = {
     ctaEyebrow: "Build a clearer campaign system",
     ctaTitle: "Find the gaps between attention",
     ctaAccent: "and conversion.",
-    ctaBody: "Request a free audit and we will review the message, campaign journey, website experience, and measurement opportunities worth prioritizing.",
+    ctaBody: "Request a growth assessment and we will review the message, campaign journey, website experience, and measurement opportunities worth prioritizing.",
   },
   web: {
     slug: "web-development",
@@ -300,7 +300,7 @@ export const servicePages: Record<string, ServicePageConfig> = {
     ctaEyebrow: "Build on a stronger foundation",
     ctaTitle: "Find the technical and journey gaps",
     ctaAccent: "holding the website back.",
-    ctaBody: "Request a free audit and we will review performance, structure, SEO foundations, and conversion friction before recommending the next build step.",
+    ctaBody: "Request a growth assessment and we will review performance, structure, SEO foundations, and conversion friction before recommending the next build step.",
   },
   design: {
     slug: "ui-ux-design",
@@ -377,7 +377,7 @@ export const servicePages: Record<string, ServicePageConfig> = {
     ctaEyebrow: "Start with experience clarity",
     ctaTitle: "Find where the interface is creating",
     ctaAccent: "confusion or hesitation.",
-    ctaBody: "Request a free audit and we will review hierarchy, usability, mobile behavior, trust, and conversion friction before recommending the right design scope.",
+    ctaBody: "Request a growth assessment and we will review hierarchy, usability, mobile behavior, trust, and conversion friction before recommending the right design scope.",
   },
   cro: {
     slug: "cro-strategy",
@@ -454,7 +454,7 @@ export const servicePages: Record<string, ServicePageConfig> = {
     ctaEyebrow: "Start with conversion clarity",
     ctaTitle: "Find where qualified traffic is",
     ctaAccent: "losing momentum.",
-    ctaBody: "Request a free audit and we will review speed, hierarchy, proof, calls to action, forms, and measurement to identify the strongest next opportunity.",
+    ctaBody: "Request a growth assessment and we will review speed, hierarchy, proof, calls to action, forms, and measurement to identify the strongest next opportunity.",
   },
   ppc: {
     slug: "ppc-management",
@@ -531,7 +531,7 @@ export const servicePages: Record<string, ServicePageConfig> = {
     ctaEyebrow: "Start with paid media clarity",
     ctaTitle: "Find where your ad budget is",
     ctaAccent: "losing useful momentum.",
-    ctaBody: "Request a free audit and we will review campaign intent, landing-page alignment, conversion friction, and measurement gaps worth addressing first.",
+    ctaBody: "Request a growth assessment and we will review campaign intent, landing-page alignment, conversion friction, and measurement gaps worth addressing first.",
   },
   ecommerce: {
     slug: "ecommerce-development",
@@ -608,6 +608,6 @@ export const servicePages: Record<string, ServicePageConfig> = {
     ctaEyebrow: "Start with commerce clarity",
     ctaTitle: "See where your store is",
     ctaAccent: "losing customer confidence.",
-    ctaBody: "Request a free audit and we will review product discovery, performance, mobile usability, conversion friction, technical SEO, and measurement to identify the strongest next opportunity.",
+    ctaBody: "Request a growth assessment and we will review product discovery, performance, mobile usability, conversion friction, technical SEO, and measurement to identify the strongest next opportunity.",
   },
 };

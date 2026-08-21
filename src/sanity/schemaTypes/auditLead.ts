@@ -7,7 +7,7 @@ const auditScopeOptions = [
   "Website Speed",
   "Leads / Conversions",
   "Ecommerce Performance",
-  "Full Audit",
+  "Full Growth Assessment",
 ];
 
 const problemOptions = [
@@ -20,17 +20,16 @@ const problemOptions = [
   "Not sure",
 ];
 
-const budgetOptions = [
-  "Under $500",
-  "$500-$1,000",
-  "$1,000-$2,500",
-  "$2,500+",
+const readinessOptions = [
+  "Exploring fit",
+  "Ready to start soon",
+  "Planning a larger growth initiative",
   "Not sure yet",
 ];
 
 export const auditLead = defineType({
   name: "auditLead",
-  title: "Audit Lead",
+  title: "Growth Assessment Lead",
   type: "document",
   fields: [
     defineField({
@@ -44,7 +43,7 @@ export const auditLead = defineType({
       title: "Status",
       type: "string",
       options: {
-        list: ["received", "report_generated", "email_sent", "failed"],
+        list: ["received", "reviewed", "booked", "closed"],
         layout: "radio",
       },
       initialValue: "received",
@@ -67,7 +66,7 @@ export const auditLead = defineType({
     }),
     defineField({
       name: "auditScope",
-      title: "What do they want audited?",
+      title: "What should be assessed?",
       type: "array",
       of: [{ type: "string" }],
       options: {
@@ -83,11 +82,11 @@ export const auditLead = defineType({
       },
     }),
     defineField({
-      name: "budgetRange",
-      title: "Monthly Budget Range",
+      name: "investmentReadiness",
+      title: "Investment Readiness",
       type: "string",
       options: {
-        list: budgetOptions,
+        list: readinessOptions,
       },
     }),
     defineField({
@@ -114,7 +113,7 @@ export const auditLead = defineType({
     }),
     defineField({
       name: "reportSummary",
-      title: "Report Summary",
+      title: "Assessment Notes",
       type: "text",
       rows: 8,
       readOnly: true,
@@ -142,10 +141,8 @@ export const auditLead = defineType({
       status: "status",
     },
     prepare(selection) {
-      const title = selection.name || selection.website || "Audit Lead";
-      const date = selection.submittedAt
-        ? new Date(selection.submittedAt).toLocaleString()
-        : "No date";
+      const title = selection.name || selection.website || "Growth Assessment Lead";
+      const date = selection.submittedAt ? new Date(selection.submittedAt).toLocaleString() : "No date";
       return {
         title,
         subtitle: `${selection.status || "received"} - ${selection.website || "No website"} - ${date}`,
