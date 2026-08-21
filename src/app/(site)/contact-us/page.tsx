@@ -6,7 +6,7 @@ import { calendlyUrl, emailAddress, whatsappUrl } from "@/content/publicPages";
 export const metadata: Metadata = {
   title: "Contact Us | Rank It Globally",
   description:
-    "Contact Rank It Globally for AI SEO, website design, conversion optimization, and growth assessment questions.",
+    "Contact Rank It Globally for AI SEO, website design, conversion optimization, and free website audit questions.",
   alternates: {
     canonical: "https://rankitglobally.com/contact-us",
   },
@@ -32,7 +32,7 @@ const contactOptions = [
   {
     icon: "calendar",
     label: "Calendar",
-    title: "Book a Growth Assessment",
+    title: "Book a free consultation",
     body: "Choose a time to discuss your website and the clearest next step.",
     action: "Choose a time",
     href: calendlyUrl,
@@ -53,8 +53,8 @@ export default function ContactUsPage() {
           clearest next move: audit, rebuild, SEO, ads, CRO, or a simple fix.
         </p>
         <div className="marketing-actions">
-          <Link className="cta-e cta-e-lg" href="/growth-assessment">
-            Book a Growth Assessment <span className="ar">→</span>
+          <Link className="cta-e cta-e-lg" href="/free-audit">
+            Start with a free audit <span className="ar">→</span>
           </Link>
           <Link
             className="marketing-link"

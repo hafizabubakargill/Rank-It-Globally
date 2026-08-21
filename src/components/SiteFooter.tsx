@@ -9,9 +9,10 @@ const companyLinks = [
 ];
 
 const growthLinks = [
-  { href: "/growth-assessment", label: "Growth Assessment" },
+  { href: "/free-audit", label: "Free Audit" },
   { href: "/#portfolio", label: "Portfolio" },
   { href: "/#services", label: "Services" },
+  { href: "/#estimator", label: "Pricing" },
 ];
 
 const resourceLinks = [

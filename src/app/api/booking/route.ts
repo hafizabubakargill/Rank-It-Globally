@@ -105,7 +105,7 @@ export async function POST(request: Request) {
       html: reportToHtml(notification, {
         title: "New Calendly Booking",
         eyebrow: "Admin Notification",
-        intro: "A visitor booked a Growth Assessment through Calendly.",
+        intro: "A visitor booked a free consultation through Calendly.",
         email: invitee.email,
         admin: true,
       }),

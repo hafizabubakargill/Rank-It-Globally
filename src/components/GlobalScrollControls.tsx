@@ -159,14 +159,14 @@ export default function GlobalScrollControls() {
               <div className="sticky-text">
                 <strong>Limited slots available this month.</strong>
                 <span>
-                  Book a Growth Assessment — we&apos;ll show you exactly where
+                  Get a free site audit — we&apos;ll show you exactly where
                   you&apos;re losing sales.
                 </span>
               </div>
             </div>
             <div className="sticky-right">
-              <Link className="cta-e" href="/growth-assessment">
-                Book a Growth Assessment <span className="ar">→</span>
+              <Link className="cta-e" href="/free-audit">
+                Get My Free Audit <span className="ar">→</span>
               </Link>
               <button
                 className="sticky-dismiss"
