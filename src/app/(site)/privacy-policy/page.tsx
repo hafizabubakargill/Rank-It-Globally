@@ -21,7 +21,7 @@ export default function PrivacyPolicyPage() {
         {
           title: "Information We Collect",
           body: [
-            "When you use our website or request a free audit, we may collect your name, email address, website URL, business details you choose to provide, and technical information related to the submitted website.",
+            "When you use our website or request a Growth Audit, we may collect your name, email address, website URL, business details you choose to provide, and technical information related to the submitted website.",
             "We may also collect standard usage information such as browser type, pages visited, referring URLs, approximate location, device information, and interaction data through analytics or hosting logs.",
           ],
         },

@@ -31,7 +31,7 @@ export default function AboutUsPage() {
         </p>
         <div className="marketing-actions">
           <Link className="cta-e cta-e-lg" href="/free-audit">
-            Get My Free Audit <span className="ar">→</span>
+            Get My Growth Audit <span className="ar">→</span>
           </Link>
           <Link className="marketing-link" href="/case-studies">
             View case studies

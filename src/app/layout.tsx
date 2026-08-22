@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://rankitglobally.com"),
   title: "Rank It Globally | AI SEO & Web Design Agency",
   description:
-    "We build websites that rank on AI search, dominate Google, and turn clicks into clients. Get your free SEO audit - no obligation.",
+    "We build websites that rank on AI search, dominate Google, and turn clicks into clients. Get your Growth Audit - no obligation.",
   keywords: [
     "web design agency",
     "conversion optimization",
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     siteName: "Rank It Globally",
     title: "Rank It Globally | AI SEO & Web Design Agency",
     description:
-      "We build websites that rank on AI search, dominate Google, and turn clicks into clients. Get your free SEO audit - no obligation.",
+      "We build websites that rank on AI search, dominate Google, and turn clicks into clients. Get your Growth Audit - no obligation.",
     url: "https://rankitglobally.com/",
     images: [brandIcon],
   },
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     site: "@rankitglobally",
     title: "Rank It Globally | AI SEO & Web Design Agency",
     description:
-      "We build websites that rank on AI search, dominate Google, and turn clicks into clients. Free SEO audit - no obligation.",
+      "We build websites that rank on AI search, dominate Google, and turn clicks into clients. Growth Audit - no obligation.",
     images: [brandIcon],
   },
   icons: {

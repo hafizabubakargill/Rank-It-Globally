@@ -10,16 +10,6 @@ const auditScopeOptions = [
   "Full Audit",
 ];
 
-const problemOptions = [
-  "Not getting enough leads",
-  "Low website traffic",
-  "Not ranking on Google",
-  "Website is slow",
-  "Website looks outdated",
-  "Ads not converting",
-  "Not sure",
-];
-
 const budgetOptions = [
   "Under $500",
   "$500-$1,000",
@@ -44,7 +34,7 @@ export const auditLead = defineType({
       title: "Status",
       type: "string",
       options: {
-        list: ["received", "report_generated", "email_sent", "failed"],
+        list: ["received", "admin_notified", "failed"],
         layout: "radio",
       },
       initialValue: "received",
@@ -75,14 +65,6 @@ export const auditLead = defineType({
       },
     }),
     defineField({
-      name: "biggestProblem",
-      title: "Biggest Problem Right Now",
-      type: "string",
-      options: {
-        list: problemOptions,
-      },
-    }),
-    defineField({
       name: "budgetRange",
       title: "Monthly Budget Range",
       type: "string",
@@ -108,20 +90,6 @@ export const auditLead = defineType({
     defineField({
       name: "adminEmailError",
       title: "Admin Email Error",
-      type: "text",
-      rows: 3,
-      readOnly: true,
-    }),
-    defineField({
-      name: "reportSummary",
-      title: "Report Summary",
-      type: "text",
-      rows: 8,
-      readOnly: true,
-    }),
-    defineField({
-      name: "providerStatus",
-      title: "Provider Status",
       type: "text",
       rows: 3,
       readOnly: true,

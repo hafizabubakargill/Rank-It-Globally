@@ -1,7 +1,6 @@
 import { NextResponse } from "next/server";
-import { buildAuditReport, isEmail } from "@/lib/audit";
 import { normalizeWebsite } from "@/lib/website";
-import { reportToHtml, sendBrevoEmail, upsertBrevoContact } from "@/lib/brevo";
+import { leadNotificationHtml, sendBrevoEmail, upsertBrevoContact } from "@/lib/brevo";
 import { hasSanityWriteConfig, writeClient } from "@/sanity/writeClient";
 
 export const runtime = "nodejs";
@@ -14,7 +13,6 @@ type AuditRequest = {
   businessEmail?: string;
   phoneNumber?: string;
   auditScope?: string[];
-  biggestProblem?: string;
   budgetRange?: string;
   message?: string;
   sourcePage?: string;
@@ -27,17 +25,15 @@ type AuditLeadDetails = {
   websiteUrl: string;
   normalizedWebsite: string;
   auditScope: string[];
-  biggestProblem: string;
   budgetRange: string;
   message: string;
   sourcePage: string;
   submissionType: "full" | "legacy-minimal";
 };
 
-type EmailStatusPatch = {
-  adminLeadEmailStatus?: "pending" | "sent" | "failed";
-  adminEmailError?: string;
-};
+function isEmail(value: string) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+}
 
 export async function POST(request: Request) {
   let payload: AuditRequest;
@@ -101,12 +97,15 @@ export async function POST(request: Request) {
     return undefined;
   });
 
-  void processAuditLead({ website, email, leadDetails, sanityLeadId }).catch((error) => {
-    console.error("Audit background job failed", error);
-    if (sanityLeadId) {
-      void patchAuditLead(sanityLeadId, { status: "failed" });
-    }
+  void upsertBrevoContact({
+    email,
+    website,
+    name: leadDetails.fullName,
+    source: "Growth Audit request",
+  }).catch((error) => {
+    console.error("Audit Brevo contact upsert failed", error);
   });
+
   void sendAdminLeadReceipt({ website, email, leadDetails, sanityLeadId }).catch((error) => {
     console.error("Audit admin lead receipt failed", error);
     if (sanityLeadId) {
@@ -120,69 +119,13 @@ export async function POST(request: Request) {
 
   return NextResponse.json({
     success: true,
-    message: "Audit request received. The report is being prepared and emailed.",
+    message: "Thanks. Pick a time below and let's talk through it.",
     lead: {
       website,
       email,
       sanityLeadId,
     },
-    queued: true,
   });
-}
-
-async function processAuditLead({
-  website,
-  email,
-  leadDetails,
-  sanityLeadId,
-}: {
-  website: string;
-  email: string;
-  leadDetails: AuditLeadDetails;
-  sanityLeadId?: string;
-}) {
-  const audit = await buildAuditReport({ website, email });
-  const providerStatus = [
-    `${audit.pageSpeed.source}: ${audit.pageSpeed.ok ? "completed" : audit.pageSpeed.error}`,
-    `${audit.dataForSeo.source}: ${audit.dataForSeo.ok ? "completed" : audit.dataForSeo.error}`,
-  ].join("\n");
-
-  const visitorHtml = reportToHtml(audit.report, {
-    title: "Your Website Audit Is Ready",
-    eyebrow: "Rank It Globally Audit",
-    intro:
-      "We checked your website performance, crawlability, on-page SEO signals, and conversion opportunities.",
-    website,
-    email,
-  });
-
-  await upsertBrevoContact({
-    email,
-    website,
-    name: leadDetails.fullName,
-    source: "Free site audit",
-  });
-
-  const visitorEmailResult = await sendBrevoEmail({
-    to: email,
-    subject: "Your Rank It Globally website audit is ready",
-    text: audit.report,
-    html: visitorHtml,
-  });
-
-  if (!visitorEmailResult.ok) {
-    throw new Error(
-      `Visitor audit email failed: ${String(visitorEmailResult.error)}`,
-    );
-  }
-
-  if (sanityLeadId) {
-    await patchAuditLead(sanityLeadId, {
-      status: "email_sent",
-      reportSummary: audit.report.slice(0, 12000),
-      providerStatus,
-    });
-  }
 }
 
 async function sendAdminLeadReceipt({
@@ -197,11 +140,11 @@ async function sendAdminLeadReceipt({
   sanityLeadId?: string;
 }) {
   const text = [
-    "New audit form submission received.",
+    "New Growth Audit form submission received.",
     "",
     formatLeadDetails(leadDetails),
     "",
-    "The automated report is now being generated for the visitor. This is the admin lead notification.",
+    "Reach out directly or wait for the visitor to book a call on Calendly.",
   ].join("\n");
 
   const adminRecipients = getAdminRecipients();
@@ -209,16 +152,14 @@ async function sendAdminLeadReceipt({
     adminRecipients.map((adminEmail) =>
       sendBrevoEmail({
         to: adminEmail,
-        subject: `New audit form submission: ${website}`,
+        subject: `New Growth Audit lead: ${website}`,
         text,
-        html: reportToHtml(text, {
-          title: "New Audit Form Submission",
+        html: leadNotificationHtml(text, {
+          title: "New Growth Audit Lead",
           eyebrow: "Lead Received",
-          intro:
-            "A visitor submitted the free audit form. The full automated report is being generated.",
+          intro: "A visitor submitted the Growth Audit form.",
           website,
           email,
-          admin: true,
         }),
       }),
     ),
@@ -261,17 +202,11 @@ function buildLeadDetails(
   const auditScope = Array.isArray(payload.auditScope)
     ? payload.auditScope.map(clean).filter(Boolean)
     : [];
-  const biggestProblem = clean(payload.biggestProblem);
   const budgetRange = clean(payload.budgetRange);
   const message = clean(payload.message);
   const sourcePage = clean(payload.sourcePage) || "/free-audit";
   const hasExpandedFields = Boolean(
-    fullName ||
-      phoneNumber ||
-      auditScope.length ||
-      biggestProblem ||
-      budgetRange ||
-      message,
+    fullName || phoneNumber || auditScope.length || budgetRange || message,
   );
 
   return {
@@ -281,7 +216,6 @@ function buildLeadDetails(
     websiteUrl: clean(rawWebsite),
     normalizedWebsite,
     auditScope,
-    biggestProblem,
     budgetRange,
     message,
     sourcePage,
@@ -295,8 +229,6 @@ function getMissingRequiredFields(lead: AuditLeadDetails) {
   if (!lead.businessEmail) missing.push("Business email");
   if (!lead.phoneNumber) missing.push("Phone number");
   if (!lead.websiteUrl) missing.push("Website URL");
-  if (!lead.auditScope.length) missing.push("What you want audited");
-  if (!lead.biggestProblem) missing.push("Biggest problem");
   if (!lead.budgetRange) missing.push("Monthly budget range");
   return missing;
 }
@@ -315,7 +247,6 @@ async function createAuditLead(lead: AuditLeadDetails) {
     websiteUrl: lead.normalizedWebsite,
     normalizedWebsite: lead.normalizedWebsite,
     auditScope: lead.auditScope,
-    biggestProblem: lead.biggestProblem,
     budgetRange: lead.budgetRange,
     message: lead.message,
     adminLeadEmailStatus: "pending",
@@ -327,10 +258,9 @@ async function createAuditLead(lead: AuditLeadDetails) {
 async function patchAuditLead(
   id: string,
   patch: {
-    status?: string;
-    reportSummary?: string;
-    providerStatus?: string;
-  } & EmailStatusPatch,
+    adminLeadEmailStatus?: "pending" | "sent" | "failed";
+    adminEmailError?: string;
+  },
 ) {
   if (!hasSanityWriteConfig) return;
   await writeClient.patch(id).set(patch).commit();
@@ -343,8 +273,7 @@ function formatLeadDetails(lead: AuditLeadDetails) {
     `Business email: ${lead.businessEmail}`,
     `Phone number: ${lead.phoneNumber || "Not provided"}`,
     `Website: ${lead.normalizedWebsite}`,
-    `Audit scope: ${lead.auditScope.length ? lead.auditScope.join(", ") : "Not provided"}`,
-    `Biggest problem: ${lead.biggestProblem || "Not provided"}`,
+    `Wants help with: ${lead.auditScope.length ? lead.auditScope.join(", ") : "Not provided"}`,
     `Monthly budget: ${lead.budgetRange || "Not provided"}`,
     `Message: ${lead.message || "Not provided"}`,
     `Source page: ${lead.sourcePage}`,

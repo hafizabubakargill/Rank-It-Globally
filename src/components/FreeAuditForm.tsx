@@ -5,17 +5,6 @@ import { useSearchParams } from "next/navigation";
 import { calendlyUrl } from "@/content/publicPages";
 import { normalizeWebsite } from "@/lib/website";
 
-const MIN_PROGRESS_MS = 8000;
-const SLOW_PROGRESS_MS = 10000;
-
-const progressSteps = [
-  "Connecting to your website",
-  "Running Google PageSpeed check",
-  "Reviewing SEO structure",
-  "Checking conversion friction",
-  "Preparing your audit call",
-];
-
 const auditOptions = [
   "Website Design",
   "SEO",
@@ -24,16 +13,6 @@ const auditOptions = [
   "Leads / Conversions",
   "Ecommerce Performance",
   "Full Audit",
-];
-
-const problemOptions = [
-  "Not getting enough leads",
-  "Low website traffic",
-  "Not ranking on Google",
-  "Website is slow",
-  "Website looks outdated",
-  "Ads not converting",
-  "Not sure",
 ];
 
 const budgetOptions = [
@@ -52,7 +31,6 @@ type AuditFormValues = {
   phoneNumber: string;
   website: string;
   auditScope: string[];
-  biggestProblem: string;
   budgetRange: string;
   message: string;
 };
@@ -90,7 +68,6 @@ const emptyForm: AuditFormValues = {
   phoneNumber: "",
   website: "",
   auditScope: [],
-  biggestProblem: "",
   budgetRange: "",
   message: "",
 };
@@ -109,26 +86,6 @@ export default function FreeAuditForm() {
   );
   const [state, setState] = useState<AuditState>("idle");
   const [message, setMessage] = useState("");
-  const [stepIndex, setStepIndex] = useState(0);
-  const [isSlow, setIsSlow] = useState(false);
-
-  useEffect(() => {
-    if (state !== "loading") return;
-
-    const stepTimer = window.setInterval(() => {
-      setStepIndex((current) =>
-        Math.min(current + 1, progressSteps.length - 1),
-      );
-    }, MIN_PROGRESS_MS / progressSteps.length);
-    const slowTimer = window.setTimeout(() => {
-      setIsSlow(true);
-    }, SLOW_PROGRESS_MS);
-
-    return () => {
-      window.clearInterval(stepTimer);
-      window.clearTimeout(slowTimer);
-    };
-  }, [state]);
 
   useEffect(() => {
     function handleCalendlyMessage(event: MessageEvent<CalendlyMessage>) {
@@ -180,9 +137,8 @@ export default function FreeAuditForm() {
               a1: submittedForm.phoneNumber,
               a2: submittedForm.website,
               a3: submittedForm.auditScope.join(", "),
-              a4: submittedForm.biggestProblem,
-              a5: submittedForm.budgetRange,
-              a6: submittedForm.message,
+              a4: submittedForm.budgetRange,
+              a5: submittedForm.message,
             },
           },
         });
@@ -202,12 +158,9 @@ export default function FreeAuditForm() {
       form.businessEmail,
       form.phoneNumber,
       form.website,
-      form.biggestProblem,
       form.budgetRange,
     ];
-    return (
-      requiredValues.filter(Boolean).length + (form.auditScope.length ? 1 : 0)
-    );
+    return requiredValues.filter(Boolean).length;
   }, [form]);
 
   function updateField(name: keyof AuditFormValues, value: string) {
@@ -251,12 +204,10 @@ export default function FreeAuditForm() {
 
     setState("loading");
     setMessage("");
-    setStepIndex(0);
-    setIsSlow(false);
     setSubmittedForm(null);
 
     try {
-      const apiRequest = fetch("/api/audit", {
+      const response = await fetch("/api/audit", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -265,11 +216,6 @@ export default function FreeAuditForm() {
           sourcePage: "/free-audit",
         }),
       });
-
-      const [response] = await Promise.all([
-        apiRequest,
-        wait(MIN_PROGRESS_MS),
-      ]);
       const data = (await response.json()) as { message?: string };
 
       if (!response.ok) {
@@ -279,15 +225,14 @@ export default function FreeAuditForm() {
       setState("success");
       setSubmittedForm(normalizedForm);
       setMessage(
-        data.message ||
-          "Audit request received. Pick a time below and we will walk through the findings together.",
+        data.message || "Thanks. Pick a time below and let's talk through it.",
       );
     } catch (error) {
       setState("error");
       setMessage(
         error instanceof Error
           ? error.message
-          : "We couldn't submit the audit. Please try again.",
+          : "We couldn't submit the form. Please try again.",
       );
     }
   }
@@ -298,10 +243,8 @@ export default function FreeAuditForm() {
     <form className="standalone-audit-form" onSubmit={handleSubmit}>
       <div className="audit-form-intro">
         <div>
-          <strong>{completedRequiredCount}/7 required fields complete</strong>
-          <span>
-            This helps us review the right things before you choose a time.
-          </span>
+          <strong>{completedRequiredCount}/5 required fields complete</strong>
+          <span>Tell us the essentials, then pick a time to talk.</span>
         </div>
       </div>
 
@@ -341,7 +284,7 @@ export default function FreeAuditForm() {
       </fieldset>
 
       <fieldset className="audit-fieldset">
-        <legend>Website audit priorities</legend>
+        <legend>About your project</legend>
         <div className="audit-form-grid audit-form-grid-single">
           <TextField
             id="auditWebsite"
@@ -358,7 +301,9 @@ export default function FreeAuditForm() {
           />
         </div>
         <div>
-          <span className="audit-form-label">What do you want audited?</span>
+          <span className="audit-form-label">
+            What do you want help with? (optional)
+          </span>
           <div className="audit-chip-grid">
             {auditOptions.map((option) => (
               <label key={option} className="audit-check-chip">
@@ -372,16 +317,7 @@ export default function FreeAuditForm() {
             ))}
           </div>
         </div>
-        <div className="audit-form-grid">
-          <SelectField
-            id="auditProblem"
-            label="Biggest Problem Right Now"
-            name="biggestProblem"
-            value={form.biggestProblem}
-            options={problemOptions}
-            onChange={updateField}
-            required
-          />
+        <div className="audit-form-grid audit-form-grid-single">
           <SelectField
             id="auditBudget"
             label="Monthly Budget Range"
@@ -395,63 +331,28 @@ export default function FreeAuditForm() {
       </fieldset>
 
       <fieldset className="audit-fieldset">
-        <legend>Budget and notes</legend>
+        <legend>Anything else? (optional)</legend>
         <div>
           <label htmlFor="auditMessage">Message / Notes</label>
           <textarea
             id="auditMessage"
             name="message"
-            placeholder="Tell us anything important about your website, current marketing, or deadlines."
+            placeholder="Tell us your biggest challenge right now, or anything important about your website, marketing, or deadlines."
             value={form.message}
             onChange={(event) => updateField("message", event.target.value)}
-            rows={5}
+            rows={4}
           />
         </div>
       </fieldset>
 
       <button className="cta-e cta-e-lg" type="submit" disabled={isLoading}>
-        {isLoading
-          ? isSlow
-            ? "Still preparing your audit..."
-            : progressSteps[stepIndex]
-          : "Get My Free Audit"}
+        {isLoading ? "Sending..." : "Get My Growth Audit"}
         <span className="ar">→</span>
       </button>
 
-      {isLoading ? (
-        <div className="standalone-audit-progress" aria-live="polite">
-          <div className="audit-progress-heading">
-            <strong>
-              {isSlow ? "Still preparing your audit..." : "Analysing your site"}
-            </strong>
-            <span>{form.website || "Your website"}</span>
-          </div>
-          <ol className="audit-progress-list">
-            {progressSteps.map((step, index) => {
-              const status =
-                index < stepIndex
-                  ? "done"
-                  : index === stepIndex
-                    ? "current"
-                    : "pending";
-              return (
-                <li className={`audit-progress-step ${status}`} key={step}>
-                  <span aria-hidden="true">{index < stepIndex ? "✓" : ""}</span>
-                  <p>{step}</p>
-                </li>
-              );
-            })}
-          </ol>
-          <small>
-            Keep this tab open. We will show the calendar after the audit
-            request is accepted.
-          </small>
-        </div>
-      ) : null}
-
       {state === "success" ? (
         <div className="standalone-audit-result success" aria-live="polite">
-          <strong>Audit started. Book your walkthrough below.</strong>
+          <strong>Request received. Book your call below.</strong>
           <p>{message}</p>
           <div className="standalone-calendly-panel">
             <div
@@ -643,17 +544,9 @@ function getClientMissingFields(form: AuditFormValues) {
   if (!form.businessEmail.trim()) missingFields.push("Business Email");
   if (!form.phoneNumber.trim()) missingFields.push("Phone Number");
   if (!form.website.trim()) missingFields.push("Website URL");
-  if (!form.auditScope.length) missingFields.push("What do you want audited?");
-  if (!form.biggestProblem.trim()) {
-    missingFields.push("Biggest Problem Right Now");
-  }
   if (!form.budgetRange.trim()) missingFields.push("Monthly Budget Range");
 
   return missingFields;
-}
-
-function wait(ms: number) {
-  return new Promise((resolve) => window.setTimeout(resolve, ms));
 }
 
 function loadCalendlyWidget() {

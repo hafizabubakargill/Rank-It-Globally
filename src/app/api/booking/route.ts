@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { reportToHtml, sendBrevoEmail, upsertBrevoContact } from "@/lib/brevo";
+import { leadNotificationHtml, sendBrevoEmail, upsertBrevoContact } from "@/lib/brevo";
 
 export const runtime = "nodejs";
 
@@ -102,12 +102,11 @@ export async function POST(request: Request) {
       to: adminEmail,
       subject: `New Calendly booking: ${name || invitee.email}`,
       text: notification,
-      html: reportToHtml(notification, {
+      html: leadNotificationHtml(notification, {
         title: "New Calendly Booking",
         eyebrow: "Admin Notification",
-        intro: "A visitor booked a free consultation through Calendly.",
+        intro: "A visitor booked a call through Calendly.",
         email: invitee.email,
-        admin: true,
       }),
     });
   }

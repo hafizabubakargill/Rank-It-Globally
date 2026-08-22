@@ -5,9 +5,9 @@ import FreeAuditForm from "@/components/FreeAuditForm";
 import { auditChecks, calendlyUrl } from "@/content/publicPages";
 
 export const metadata: Metadata = {
-  title: "Free Website Audit | Rank It Globally",
+  title: "Growth Audit | Rank It Globally",
   description:
-    "Request a free website audit covering PageSpeed, technical SEO, crawlability, AI search readiness, and conversion opportunities.",
+    "Request a Growth Audit covering speed, technical SEO, crawlability, AI search readiness, and conversion opportunities, then book a call to walk through the findings.",
   alternates: {
     canonical: "https://rankitglobally.com/free-audit",
   },
@@ -17,7 +17,7 @@ export default function FreeAuditPage() {
   const schemaData = {
     "@context": "https://schema.org",
     "@type": "Service",
-    name: "Free Website Audit",
+    name: "Growth Audit",
     provider: {
       "@type": "Organization",
       name: "Rank It Globally",
@@ -36,15 +36,15 @@ export default function FreeAuditPage() {
       />
       <section className="audit-hero">
         <div className="audit-hero-copy">
-          <div className="marketing-eyebrow">Free Website Audit</div>
+          <div className="marketing-eyebrow">Growth Audit</div>
           <h1>
             Find the leaks costing you{" "}
             <span className="gtext">rankings, leads, and sales.</span>
           </h1>
           <p>
-            Tell us about your business and what feels stuck. We will check
+            Tell us about your business and what feels stuck. We will review
             speed, crawlability, on-page SEO, AI search readiness, and
-            conversion friction, then send the report to your inbox.
+            conversion friction, then walk you through it live on a call.
           </p>
           <div className="audit-checks">
             {auditChecks.map((check) => (
@@ -133,18 +133,17 @@ export default function FreeAuditPage() {
         <ol>
           <li>
             <strong>Share what feels stuck.</strong> Tell us what you want
-            reviewed, your biggest current problem, and the website we should
-            inspect.
+            reviewed, your budget range, and the website we should inspect.
           </li>
           <li>
-            <strong>We run the checks.</strong> The audit combines performance
-            and SEO data with a structured review of search visibility and
-            conversion opportunities.
+            <strong>We review your site.</strong> A senior strategist looks at
+            performance, SEO, search visibility, and conversion opportunities
+            before you talk to anyone.
           </li>
           <li>
-            <strong>Receive the report.</strong> We email prioritized findings
-            in plain English, with the option to book a walkthrough if you want
-            help deciding what to fix first.
+            <strong>Book a time.</strong> Pick a slot right after you submit
+            the form and we will walk through prioritized findings together,
+            in plain English.
           </li>
         </ol>
       </section>
@@ -153,18 +152,18 @@ export default function FreeAuditPage() {
         <div>
           <p className="marketing-eyebrow">What you get</p>
           <h2>
-            A plain-English report, <span className="gtext">not a mystery spreadsheet.</span>
+            A plain-English walkthrough, <span className="gtext">not a mystery spreadsheet.</span>
           </h2>
         </div>
         <div className="marketing-copy">
           <p>
             The audit is designed to show what is stopping the site from being
-            found, understood, and trusted. It combines automated checks with AI
-            analysis so the recommendations are easier to act on.
+            found, understood, and trusted, then explain it in a live call so
+            the recommendations are easier to act on.
           </p>
           <p>
-            If you want help prioritizing the fixes, book a call and we will
-            walk through what is worth doing now versus later.
+            Prefer to skip the form? Book a call directly and we will pull up
+            your site during the conversation.
           </p>
           <Link
             className="marketing-link"
@@ -187,16 +186,15 @@ export default function FreeAuditPage() {
         </div>
         <div className="marketing-copy">
           <p>
-            You will receive practical recommendations ordered by likely impact,
-            not a generic checklist. The audit highlights what deserves
-            attention now, what can wait, and where further manual investigation
-            may be needed.
+            You will get practical recommendations ordered by likely impact,
+            not a generic checklist. The call highlights what deserves
+            attention now, what can wait, and where further investigation may
+            be needed.
           </p>
           <p>
-            The report uses automated data and AI-supported analysis as a
-            starting point. It does not guarantee rankings, traffic, or revenue,
-            and implementation is not included. There is no obligation to hire
-            us after receiving it.
+            The audit does not guarantee rankings, traffic, or revenue, and
+            implementation is not included. There is no obligation to hire us
+            after the call.
           </p>
         </div>
       </section>

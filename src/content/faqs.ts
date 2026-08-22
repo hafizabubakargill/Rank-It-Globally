@@ -22,7 +22,7 @@ export const homepageFaqs: FaqItem[] = [
   {
     question: "How much does a professional website cost?",
     answer:
-      "Our landing pages start at $699, brand websites at $1,299, and e-commerce builds at $1,499. Every project includes mobile-first design, speed optimization, and on-page SEO. Use the price estimator to get an instant quote for your specific needs.",
+      "Every project is scoped to the specific outcome you need, so pricing depends on scope, complexity, and timeline. Book a short call and we will give you a clear, tailored quote after understanding your goals.",
   },
   {
     question: "Is it worth running Google Ads for a small business?",

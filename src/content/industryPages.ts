@@ -129,7 +129,7 @@ export const industryPages: Record<string, IndustryPageConfig> = {
     ctaEyebrow: "Start with a clearer diagnosis",
     ctaTitle: "See where patient demand is",
     ctaAccent: "getting lost.",
-    ctaBody: "Request a free audit and we will identify the search, website, trust, and conversion opportunities worth addressing first.",
+    ctaBody: "Request a Growth Audit and we will identify the search, website, trust, and conversion opportunities worth addressing first.",
   },
   "ecommerce-marketing": {
     slug: "ecommerce-marketing",
@@ -205,7 +205,7 @@ export const industryPages: Record<string, IndustryPageConfig> = {
     ctaEyebrow: "Start with the whole funnel",
     ctaTitle: "Find what is limiting",
     ctaAccent: "store growth.",
-    ctaBody: "Request a free audit and we will review discovery, paid acquisition, storefront friction, and the highest-value next steps.",
+    ctaBody: "Request a Growth Audit and we will review discovery, paid acquisition, storefront friction, and the highest-value next steps.",
   },
   "home-services-marketing": {
     slug: "home-services-marketing",
@@ -281,7 +281,7 @@ export const industryPages: Record<string, IndustryPageConfig> = {
     ctaEyebrow: "Own more of your demand",
     ctaTitle: "See where local customers are",
     ctaAccent: "choosing someone else.",
-    ctaBody: "Request a free audit and we will identify the profile, service-area, website, review, and campaign opportunities worth fixing first.",
+    ctaBody: "Request a Growth Audit and we will identify the profile, service-area, website, review, and campaign opportunities worth fixing first.",
   },
   "law-firm-marketing": {
     slug: "law-firm-marketing",
@@ -357,7 +357,7 @@ export const industryPages: Record<string, IndustryPageConfig> = {
     ctaEyebrow: "Start with the evidence",
     ctaTitle: "See what limits your firm's",
     ctaAccent: "search visibility.",
-    ctaBody: "Request a free audit and we will identify the technical, content, local, trust, and conversion opportunities worth addressing first.",
+    ctaBody: "Request a Growth Audit and we will identify the technical, content, local, trust, and conversion opportunities worth addressing first.",
   },
   "real-estate-marketing": {
     slug: "real-estate-marketing",
@@ -433,7 +433,7 @@ export const industryPages: Record<string, IndustryPageConfig> = {
     ctaEyebrow: "Own more local discovery",
     ctaTitle: "See where buyer and seller demand is",
     ctaAccent: "passing you by.",
-    ctaBody: "Request a free audit and we will review market coverage, IDX structure, local visibility, content, and the path to an inquiry.",
+    ctaBody: "Request a Growth Audit and we will review market coverage, IDX structure, local visibility, content, and the path to an inquiry.",
   },
   "tech-startup-marketing": {
     slug: "tech-startup-marketing",
@@ -509,6 +509,6 @@ export const industryPages: Record<string, IndustryPageConfig> = {
     ctaEyebrow: "Build beyond rented demand",
     ctaTitle: "See what is limiting your",
     ctaAccent: "organic growth system.",
-    ctaBody: "Request a free audit and we will review technical health, positioning, content coverage, authority, and the route from discovery to signup.",
+    ctaBody: "Request a Growth Audit and we will review technical health, positioning, content coverage, authority, and the route from discovery to signup.",
   },
 };

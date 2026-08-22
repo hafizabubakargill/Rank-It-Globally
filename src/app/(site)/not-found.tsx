@@ -9,14 +9,14 @@ export default function NotFound() {
         <h1>This page has moved or no longer exists.</h1>
         <p>
           The link may be from an older version of our website. You can return
-          home, explore the blog, or request a free website audit.
+          home, explore the blog, or request a Growth Audit.
         </p>
         <div className="not-found-actions">
           <HardHomeLink className="not-found-primary">
             Back to homepage
           </HardHomeLink>
           <Link href="/blog">Browse the blog</Link>
-          <Link href="/free-audit">Get a free audit</Link>
+          <Link href="/free-audit">Get a Growth Audit</Link>
         </div>
       </div>
     </main>

@@ -1,6 +1,6 @@
 # Rank It Globally Next.js Site
 
-Next.js conversion of the Rank It Globally landing page with a hidden Sanity blog and a Brevo-powered audit form.
+Next.js conversion of the Rank It Globally landing page with a hidden Sanity blog and a Brevo-powered Growth Audit lead form.
 
 ## Local Development
 
@@ -15,21 +15,12 @@ Open `http://localhost:3000`.
 
 Copy `.env.example` to `.env.local` and fill in the credentials you want enabled.
 
-Required for visitor/admin audit emails:
+Required for the admin lead notification email:
 
 ```env
 BREVO_API_KEY=
 BREVO_SENDER_EMAIL=
 BREVO_ADMIN_EMAIL=
-```
-
-Required for full automated reports:
-
-```env
-ANTHROPIC_API_KEY=
-GOOGLE_PAGESPEED_API_KEY=
-DATAFORSEO_LOGIN=
-DATAFORSEO_PASSWORD=
 ```
 
 Optional lead capture into a Brevo list:
@@ -57,18 +48,17 @@ SANITY_API_READ_TOKEN=
 
 The embedded Studio is available at `/studio`. The blog routes are available at `/blog` and `/blog/[slug]`, but they are intentionally not linked from the landing page navigation yet.
 
-## Audit Form
+## Growth Audit Form
 
-The landing page posts to `/api/audit`. The route:
+The landing page and the `/free-audit` page post to `/api/audit`. The route:
 
-- validates the visitor website and email
-- runs Google PageSpeed when configured
-- runs DataForSEO OnPage when configured
-- asks Claude to write a readable report when configured
-- sends the visitor report through Brevo
-- sends an admin notification through Brevo
+- validates the visitor's website and email
+- saves the lead to Sanity (when write access is configured)
+- adds the contact to Brevo (when a list is configured)
+- sends an admin lead notification through Brevo
 
-If an upstream API is missing or unavailable, the route still returns success and includes a clear pending/fallback section in the report.
+There is no automated report generation. The form is designed to get a visitor
+onto a Calendly call, which appears immediately after a successful submission.
 
 ## Hostinger Deployment
 

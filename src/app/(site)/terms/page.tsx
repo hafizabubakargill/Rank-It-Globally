@@ -56,14 +56,14 @@ export default function TermsPage() {
         {
           title: "No Warranties",
           body: [
-            "The website and free audit tools are provided on an as-is and as-available basis. We do not warrant that the site will be uninterrupted, error-free, or free of harmful components.",
+            "The website and Growth Audit tools are provided on an as-is and as-available basis. We do not warrant that the site will be uninterrupted, error-free, or free of harmful components.",
             "We make no guarantee that recommendations, reports, or strategies will produce a particular ranking, traffic level, conversion rate, or financial result.",
           ],
         },
         {
           title: "Limitation of Liability",
           body: [
-            "To the fullest extent permitted by law, Rank It Globally will not be liable for indirect, incidental, consequential, special, punitive, or lost-profit damages arising from your use of the website or free audit tools.",
+            "To the fullest extent permitted by law, Rank It Globally will not be liable for indirect, incidental, consequential, special, punitive, or lost-profit damages arising from your use of the website or Growth Audit tools.",
             "Where liability cannot be excluded, our liability will be limited to the amount you paid us for the specific service giving rise to the claim.",
           ],
         },

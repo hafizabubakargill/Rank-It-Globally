@@ -183,10 +183,10 @@ export default function BlogNav() {
             </div>
           </div>
           {homeLinks.slice(1).map((link) => <Link className="nk" key={link.href} href={link.href}>{link.label}</Link>)}
-          <Link className="cta-e" href="/free-audit">Get My Free Audit <span className="ar">→</span></Link>
+          <Link className="cta-e" href="/free-audit">Get My Growth Audit <span className="ar">→</span></Link>
         </div>
         <div className="mobile-nav-actions">
-          <Link className="mobile-nav-cta" href="/free-audit" onClick={closeMenus}>Free Audit</Link>
+          <Link className="mobile-nav-cta" href="/free-audit" onClick={closeMenus}>Growth Audit</Link>
           <button className="mobile-menu-toggle" type="button" aria-label={mobileOpen ? "Close menu" : "Open menu"} aria-expanded={mobileOpen} aria-controls="blogMobileMenuPanel" onClick={() => setMobileOpen((value) => !value)}>
             <span /><span /><span />
           </button>
