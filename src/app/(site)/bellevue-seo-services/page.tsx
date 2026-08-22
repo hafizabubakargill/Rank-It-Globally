@@ -355,7 +355,7 @@ export default function BellevueSeoServicesPage() {
             Bellevue businesses qualified customers.
           </p>
           <div className="marketing-actions">
-            <Link className="cta-e cta-e-lg" href="/free-audit">
+            <Link className="cta-e cta-e-lg" href="/growth-audit">
               Get My Growth Audit <span className="ar">→</span>
             </Link>
             <Link className="marketing-link" href="/case-studies">
@@ -556,7 +556,7 @@ export default function BellevueSeoServicesPage() {
           conversion issues most likely to hold the site back.
         </p>
         <div className="marketing-actions">
-          <Link className="cta-e cta-e-lg" href="/free-audit">
+          <Link className="cta-e cta-e-lg" href="/growth-audit">
             Get My Growth Audit <span className="ar">→</span>
           </Link>
           <Link className="marketing-link" href="/case-studies">

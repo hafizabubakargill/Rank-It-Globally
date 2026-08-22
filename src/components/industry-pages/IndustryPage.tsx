@@ -127,7 +127,7 @@ export function IndustryPage({ config }: { config: IndustryPageConfig }) {
           </h1>
           <p className="marketing-lead">{config.heroBody}</p>
           <div className="marketing-actions">
-            <Link className="cta-e cta-e-lg" href="/free-audit">
+            <Link className="cta-e cta-e-lg" href="/growth-audit">
               Get My Growth Audit <span className="ar">→</span>
             </Link>
             <Link className="marketing-link" href="/case-studies">See our work</Link>

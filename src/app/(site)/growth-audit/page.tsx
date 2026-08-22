@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   description:
     "Request a Growth Audit covering speed, technical SEO, crawlability, AI search readiness, and conversion opportunities, then book a call to walk through the findings.",
   alternates: {
-    canonical: "https://rankitglobally.com/free-audit",
+    canonical: "https://rankitglobally.com/growth-audit",
   },
 };
 
@@ -25,7 +25,7 @@ export default function FreeAuditPage() {
     },
     areaServed: "Worldwide",
     serviceType: "Website SEO and conversion audit",
-    url: "https://rankitglobally.com/free-audit",
+    url: "https://rankitglobally.com/growth-audit",
   };
 
   return (
@@ -59,7 +59,7 @@ export default function FreeAuditPage() {
         </div>
       </section>
 
-      <section aria-labelledby="audit-inspection-title">
+      <section className="audit-inspection-section" aria-labelledby="audit-inspection-title">
         <p className="marketing-eyebrow">What we inspect</p>
         <h2 id="audit-inspection-title">
           A focused review of the issues that affect{" "}

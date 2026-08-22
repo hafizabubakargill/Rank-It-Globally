@@ -1176,6 +1176,7 @@ select {
 .marketing-split,
 .marketing-card-grid,
 .marketing-process,
+.audit-inspection-section,
 .about-faq-section,
 .case-filter-section,
 .case-category-row,
@@ -2275,6 +2276,10 @@ a.marketing-card:hover {
 
 .case-mini-card small {
   color: var(--muted, #6b6880);
+}
+
+.audit-inspection-section {
+  margin-top: clamp(3rem, 7vw, 5rem);
 }
 
 .about-faq-section {

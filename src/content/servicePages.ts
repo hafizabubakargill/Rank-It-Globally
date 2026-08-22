@@ -67,7 +67,7 @@ export type ServicePageConfig = {
 
 const sharedRelated = [
   { href: "/case-studies", label: "Case studies", description: "See how strategy, design, development, and campaigns connect in real work." },
-  { href: "/free-audit", label: "Growth audit", description: "Find the most important visibility and conversion gaps before choosing a scope." },
+  { href: "/growth-audit", label: "Growth audit", description: "Find the most important visibility and conversion gaps before choosing a scope." },
 ];
 
 export const servicePages: Record<string, ServicePageConfig> = {

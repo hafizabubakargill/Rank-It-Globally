@@ -20,6 +20,11 @@ Required for the admin lead notification email:
 ```env
 BREVO_API_KEY=
 BREVO_SENDER_EMAIL=
+```
+
+Optional — admin email recipient (falls back to `hello@rankitglobally.com` if unset):
+
+```env
 BREVO_ADMIN_EMAIL=
 ```
 
@@ -50,7 +55,7 @@ The embedded Studio is available at `/studio`. The blog routes are available at 
 
 ## Growth Audit Form
 
-The landing page and the `/free-audit` page post to `/api/audit`. The route:
+The landing page and the `/growth-audit` page post to `/api/audit`. The route:
 
 - validates the visitor's website and email
 - saves the lead to Sanity (when write access is configured)

@@ -213,7 +213,7 @@ export default function FreeAuditForm() {
         body: JSON.stringify({
           ...normalizedForm,
           email: normalizedForm.businessEmail,
-          sourcePage: "/free-audit",
+          sourcePage: "/growth-audit",
         }),
       });
       const data = (await response.json()) as { message?: string };

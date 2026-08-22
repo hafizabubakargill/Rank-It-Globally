@@ -204,7 +204,7 @@ function buildLeadDetails(
     : [];
   const budgetRange = clean(payload.budgetRange);
   const message = clean(payload.message);
-  const sourcePage = clean(payload.sourcePage) || "/free-audit";
+  const sourcePage = clean(payload.sourcePage) || "/growth-audit";
   const hasExpandedFields = Boolean(
     fullName || phoneNumber || auditScope.length || budgetRange || message,
   );

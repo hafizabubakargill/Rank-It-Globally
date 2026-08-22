@@ -7,7 +7,7 @@ const siteUrl = "https://rankitglobally.com";
 
 const staticRoutes: MetadataRoute.Sitemap = [
   { url: siteUrl, changeFrequency: "weekly", priority: 1 },
-  { url: `${siteUrl}/free-audit`, changeFrequency: "weekly", priority: 0.9 },
+  { url: `${siteUrl}/growth-audit`, changeFrequency: "weekly", priority: 0.9 },
   { url: `${siteUrl}/seo-services`, changeFrequency: "monthly", priority: 0.8 },
   {
     url: `${siteUrl}/social-media-marketing`,

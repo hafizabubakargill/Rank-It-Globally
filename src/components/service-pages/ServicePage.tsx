@@ -113,7 +113,7 @@ export function ServicePage({ config }: { config: ServicePageConfig }) {
           </h1>
           <p>{config.heroBody}</p>
           <div className="marketing-actions">
-            <Link className="cta-e cta-e-lg" href="/free-audit">
+            <Link className="cta-e cta-e-lg" href="/growth-audit">
               Get My Growth Audit <span className="ar">→</span>
             </Link>
             <Link className="marketing-link" href="/case-studies">

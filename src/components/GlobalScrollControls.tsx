@@ -165,7 +165,7 @@ export default function GlobalScrollControls() {
               </div>
             </div>
             <div className="sticky-right">
-              <Link className="cta-e" href="/free-audit">
+              <Link className="cta-e" href="/growth-audit">
                 Get My Growth Audit <span className="ar">→</span>
               </Link>
               <button

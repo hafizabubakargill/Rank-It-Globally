@@ -231,7 +231,7 @@ export default function IndustriesPage() {
             before recommending the right mix.
           </p>
           <div className="industry-index-actions industry-index-actions-centered">
-            <Link className="marketing-primary-link" href="/free-audit">
+            <Link className="marketing-primary-link" href="/growth-audit">
               Get My Growth Audit <span aria-hidden="true">→</span>
             </Link>
             <Link className="marketing-secondary-link" href="/contact-us">

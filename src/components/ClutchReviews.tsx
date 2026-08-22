@@ -241,7 +241,7 @@ export default function ClutchReviews() {
         </button>
       </div>
       <div className="clutch-actions rev d2">
-        <Link className="cta-e cta-e-lg" href="/free-audit">
+        <Link className="cta-e cta-e-lg" href="/growth-audit">
           Get My Growth Audit <span aria-hidden="true">→</span>
         </Link>
         <a

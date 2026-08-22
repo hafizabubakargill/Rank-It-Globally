@@ -53,7 +53,7 @@ export default function ContactUsPage() {
           clearest next move: audit, rebuild, SEO, ads, CRO, or a simple fix.
         </p>
         <div className="marketing-actions">
-          <Link className="cta-e cta-e-lg" href="/free-audit">
+          <Link className="cta-e cta-e-lg" href="/growth-audit">
             Start with a Growth Audit <span className="ar">→</span>
           </Link>
           <Link
