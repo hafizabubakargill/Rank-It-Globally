@@ -38,11 +38,11 @@ const nextConfig: NextConfig = {
   async headers() {
     const contentSecurityPolicy = [
       "default-src 'self'",
-      "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://*.googletagmanager.com https://assets.calendly.com https://*.calendly.com https://player.vimeo.com",
+      "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://*.googletagmanager.com https://assets.calendly.com https://*.calendly.com https://player.vimeo.com https://snap.licdn.com",
       "style-src 'self' 'unsafe-inline' https://assets.calendly.com",
-      "img-src 'self' data: blob: https://cdn.sanity.io https://i.vimeocdn.com https://*.vimeocdn.com https://*.google-analytics.com https://*.googletagmanager.com https://*.google.com https://*.gstatic.com",
+      "img-src 'self' data: blob: https://cdn.sanity.io https://i.vimeocdn.com https://*.vimeocdn.com https://*.google-analytics.com https://*.googletagmanager.com https://*.google.com https://*.gstatic.com https://*.ads.linkedin.com https://www.linkedin.com",
       "font-src 'self' data:",
-      "connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com https://*.google-analytics.com https://*.googletagmanager.com https://*.calendly.com https://api.calendly.com https://player.vimeo.com https://*.vimeo.com https://cdn.sanity.io https://*.sanity.io wss://*.sanity.io",
+      "connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com https://*.google-analytics.com https://*.googletagmanager.com https://*.calendly.com https://api.calendly.com https://player.vimeo.com https://*.vimeo.com https://cdn.sanity.io https://*.sanity.io wss://*.sanity.io https://*.ads.linkedin.com https://www.linkedin.com",
       "frame-src https://calendly.com https://*.calendly.com https://player.vimeo.com",
       "worker-src 'self' blob:",
       "object-src 'none'",

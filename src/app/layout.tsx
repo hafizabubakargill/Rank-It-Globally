@@ -77,6 +77,32 @@ export default function RootLayout({
             gtag('config', 'G-G8NJHBTHVL');
           `}
         </Script>
+        <Script id="linkedin-insight-init" strategy="afterInteractive">
+          {`
+            _linkedin_partner_id = "10805233";
+            window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
+            window._linkedin_data_partner_ids.push(_linkedin_partner_id);
+            (function(l) {
+              if (!l) {
+                window.lintrk = function(a,b){window.lintrk.q.push([a,b])};
+                window.lintrk.q = [];
+              }
+            })(window.lintrk);
+          `}
+        </Script>
+        <Script
+          src="https://snap.licdn.com/li.lms-analytics/insight.min.js"
+          strategy="afterInteractive"
+        />
+        <noscript>
+          <img
+            height={1}
+            width={1}
+            style={{ display: "none" }}
+            alt=""
+            src="https://px.ads.linkedin.com/collect/?pid=10805233&fmt=gif"
+          />
+        </noscript>
       </body>
     </html>
   );
